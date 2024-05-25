@@ -66,6 +66,7 @@ public class GeneralController {
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("totalPages", sanPhamPage.getTotalPages());
         model.addAttribute("cart", gioHangService.findAll());
+        model.addAttribute("nhanVien", Auth.getLoggedInNhanVien());
         return "/index.jsp";
     }
 

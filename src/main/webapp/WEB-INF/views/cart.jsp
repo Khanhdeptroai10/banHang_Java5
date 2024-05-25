@@ -316,7 +316,7 @@
                                     <!--begin::Input group-->
                                     <div class="fv-row">
                                         <!--begin::Label-->
-                                        <label class="required form-label">Shipping Method</label>
+                                        <label class="required form-label">Customer</label>
                                         <!--end::Label-->
                                         <!--begin::Select-->
                                         <form:select path="khachHang.id" class="form-select mb-2">
@@ -335,7 +335,7 @@
                                     <!--begin::Input group-->
                                     <div class="fv-row">
                                         <!--begin::Label-->
-                                        <label class="required form-label">Order Date</label>
+                                        <label class="required form-label">Order status</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <div class="form-check form-check-custom form-check-solid mb-2">
