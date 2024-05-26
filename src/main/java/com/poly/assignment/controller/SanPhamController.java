@@ -58,9 +58,21 @@ public class SanPhamController {
         return "/products-table.jsp";
     }
 
-    @GetMapping("/products/search")
-    public List<SanPham> findByKey(@RequestParam("key") String key) {
-        return sanPhamService.findByKey(key);
+    @GetMapping("/products/table/search")
+    public String findByKey(@RequestParam("key") String key,
+                            @ModelAttribute("sanPham") SanPham sanPham,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
+                            Model model) {
+        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<SanPham> sanPhamPage = PageUtil.createPage(sanPhamService.findByKey(key), page, pageSize);
+        model.addAttribute("products", sanPhamPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", sanPhamPage.getTotalPages());
+        return "/products-table.jsp";
     }
 
     @ModelAttribute("status")

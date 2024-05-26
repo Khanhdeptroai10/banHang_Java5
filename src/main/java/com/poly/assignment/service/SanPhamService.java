@@ -44,7 +44,7 @@ public class SanPhamService {
     public List<SanPham> findByKey(String key) {
         List<SanPham> result = new ArrayList<>();
         for (SanPham sanPham: listSanPham) {
-            if (sanPham.getMaSP().contains(key) || sanPham.getTen().contains(key)) {
+            if (sanPham.getMaSP().toLowerCase().contains(key.toLowerCase()) || sanPham.getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(sanPham);
             }
         }
