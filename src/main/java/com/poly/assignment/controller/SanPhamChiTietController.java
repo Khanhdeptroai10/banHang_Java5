@@ -36,7 +36,7 @@ public class SanPhamChiTietController {
                          @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                          @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                          Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<SanPhamChiTiet> sanPhamChiTietPage = PageUtil.createPage(sanPhamChiTietService.findAll(), page, pageSize);
@@ -52,7 +52,7 @@ public class SanPhamChiTietController {
                                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                                  @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                                                  Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         model.addAttribute("pid", pid);
@@ -71,7 +71,7 @@ public class SanPhamChiTietController {
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                             Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<SanPhamChiTiet> sanPhamChiTietPage = PageUtil.createPage(sanPhamChiTietService.findByKey(key), page, pageSize);
@@ -112,7 +112,7 @@ public class SanPhamChiTietController {
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (result.hasErrors()) {
@@ -143,7 +143,7 @@ public class SanPhamChiTietController {
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         SanPhamChiTiet sanPhamChiTiet1 = sanPhamChiTietService.findById(id);
@@ -158,7 +158,7 @@ public class SanPhamChiTietController {
 
     @GetMapping("/product-details/delete")
     public String deleteProduct(@RequestParam("id") String id) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         sanPhamChiTietService.delete(id);

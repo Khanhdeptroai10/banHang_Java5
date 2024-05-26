@@ -35,7 +35,7 @@ public class HoaDonController {
 
     @GetMapping("/checkout")
     public String checkoutPage(Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         model.addAttribute("carts", gioHangService.findAll());
@@ -46,7 +46,7 @@ public class HoaDonController {
     public String getOrders(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                             Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<HoaDon> hoaDonPage = PageUtil.createPage(hoaDonService.findAll(), page, pageSize);
@@ -80,7 +80,7 @@ public class HoaDonController {
                               BindingResult result,
                               @RequestParam(value = "id", required = false) String id,
                               Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
 
@@ -117,7 +117,7 @@ public class HoaDonController {
                               @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                               @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                               Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
 

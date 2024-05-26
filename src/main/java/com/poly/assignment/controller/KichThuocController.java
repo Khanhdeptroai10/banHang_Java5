@@ -26,7 +26,7 @@ public class KichThuocController {
                          @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                          @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                          Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<KichThuoc> kichThuocPage = PageUtil.createPage(kichThuocService.findAll(), page, pageSize);
@@ -47,7 +47,7 @@ public class KichThuocController {
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                             Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<KichThuoc> kichThuocPage = PageUtil.createPage(kichThuocService.findByKey(key), page, pageSize);
@@ -70,7 +70,7 @@ public class KichThuocController {
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (result.hasErrors()) {
@@ -97,7 +97,7 @@ public class KichThuocController {
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         KichThuoc kichThuoc1 = kichThuocService.findById(id);
@@ -112,7 +112,7 @@ public class KichThuocController {
 
     @GetMapping("/sizes/delete")
     public String deleteSize(@RequestParam("id") String id) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         kichThuocService.delete(id);

@@ -28,7 +28,7 @@ public class GioHangController {
 
     @GetMapping("/cart")
     public String cartPage(@ModelAttribute("hoaDon") HoaDon hoaDon, Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         model.addAttribute("cart", gioHangService.findAll());
@@ -38,7 +38,7 @@ public class GioHangController {
     @GetMapping("/add-to-cart")
     public String addToCart(@RequestParam("pid") String pid,
                             @RequestParam("pdid") String pdid) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (pdid != null) {
@@ -51,7 +51,7 @@ public class GioHangController {
 
     @GetMapping("/decrease-quantity-in-cart-item")
     public String decreaseQuantityInCart(@RequestParam("cid") String cid) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (cid != null && !cid.equals(""))
@@ -61,7 +61,7 @@ public class GioHangController {
 
     @GetMapping("/increase-quantity-in-cart-item")
     public String increaseQuantityInCart(@RequestParam("cid") String cid) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (cid != null && !cid.equals(""))
@@ -73,7 +73,7 @@ public class GioHangController {
 
     @GetMapping("/delete-item-in-cart")
     public String deleteItemInCart(@RequestParam("pdid") String pdid) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (pdid != null && !pdid.equals(""))
@@ -83,7 +83,7 @@ public class GioHangController {
 
     @GetMapping("/clear-cart")
     public String clearCart() {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         gioHangService.deleteAll();

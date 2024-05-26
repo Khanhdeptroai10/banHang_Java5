@@ -26,7 +26,7 @@ public class MauSacController {
                          @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                          @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                          Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<MauSac> mauSacPage = PageUtil.createPage(mauSacService.findAll(), page, pageSize);
@@ -47,7 +47,7 @@ public class MauSacController {
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                             Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<MauSac> mauSacPage = PageUtil.createPage(mauSacService.findByKey(key), page, pageSize);
@@ -70,7 +70,7 @@ public class MauSacController {
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (result.hasErrors()) {
@@ -97,7 +97,7 @@ public class MauSacController {
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         MauSac mauSac1 = mauSacService.findById(id);
@@ -112,7 +112,7 @@ public class MauSacController {
 
     @GetMapping("/colors/delete")
     public String deleteColor(@RequestParam("id") String id) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         mauSacService.delete(id);

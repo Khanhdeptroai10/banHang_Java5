@@ -36,18 +36,6 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="#" class="btn btn-sm fw-bold btn-secondary" data-bs-toggle="modal"
-                       data-bs-target="#kt_modal_create_app">Rollover</a>
-                    <!--end::Secondary button-->
-                    <!--begin::Primary button-->
-                    <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                       data-bs-target="#kt_modal_new_target">Add Target</a>
-                    <!--end::Primary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -93,7 +81,7 @@
                                             <!--end::Title-->
                                             <!--begin::Author-->
                                             <div class="base text-gray-600 mt-2 mb-2">
-                                                Horizon Tech
+                                                Luu Yen
                                             </div>
                                             <!--end::Author-->
                                             <!--begin::Rating-->

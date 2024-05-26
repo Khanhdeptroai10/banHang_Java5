@@ -32,7 +32,7 @@ public class SanPhamController {
 
     @GetMapping("/products/edit")
     public String pEdit(@RequestParam(value = "pid", required = false) String pid, Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (pid != null) {
@@ -47,7 +47,7 @@ public class SanPhamController {
                          @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                          @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                          Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<SanPham> sanPhamPage = PageUtil.createPage(sanPhamService.findAll(), page, pageSize);
@@ -64,7 +64,7 @@ public class SanPhamController {
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                             Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<SanPham> sanPhamPage = PageUtil.createPage(sanPhamService.findByKey(key), page, pageSize);
@@ -90,7 +90,7 @@ public class SanPhamController {
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (result.hasErrors()) {
@@ -117,7 +117,7 @@ public class SanPhamController {
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         SanPham sanPham1 = sanPhamService.findById(id);
@@ -132,7 +132,7 @@ public class SanPhamController {
 
     @GetMapping("/products/delete")
     public String deleteProduct(@RequestParam("id") String id) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         sanPhamService.delete(id);

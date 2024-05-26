@@ -37,7 +37,6 @@ public class GeneralController {
                         Model model) {
         NhanVien nhanVien = authService.login(tenDangNhap, matKhau);
         if (nhanVien != null) {
-            Auth.setLoggedIn(true);
             Auth.setLoggedInNhanVien(nhanVien);
             model.addAttribute("nhanVien", nhanVien);
             return "redirect:/";
@@ -57,7 +56,7 @@ public class GeneralController {
     public String index(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                         @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                         Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<SanPham> sanPhamPage = PageUtil.createPage(sanPhamService.findAll(), page, pageSize);

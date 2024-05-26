@@ -22,7 +22,7 @@ public class HoaDonChiTietController {
     public String getOrderDetails(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                   @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                   Model model) {
-        if (Auth.isLoggedIn() == false || Auth.getLoggedInNhanVien() == null) {
+        if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         Page<HoaDonChiTiet> hoaDonChiTietPage = PageUtil.createPage(hoaDonChiTietService.findAll(), page, pageSize);

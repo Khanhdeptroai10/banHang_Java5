@@ -377,11 +377,9 @@
                                                        value="1"/>
                                             </div>
                                         </th>
-                                        <th class="min-w-200px">Product</th>
-                                        <th class="text-end min-w-100px">Ma san pham</th>
-                                        <th class="text-end min-w-70px">Qty</th>
-                                        <th class="text-end min-w-100px">Price</th>
-                                        <th class="text-end min-w-100px">Status</th>
+                                        <th class="min-w-70px">Product</th>
+                                        <th class="text-end min-w-70px">Ma san pham</th>
+                                        <th class="text-end min-w-70px">Status</th>
                                         <th class="text-end min-w-70px">Actions</th>
                                     </tr>
                                     </thead>
@@ -414,10 +412,6 @@
                                             <td class="text-end pe-0">
                                                 <span class="fw-bold">${product.maSP}</span>
                                             </td>
-                                            <td class="text-end pe-0" data-order="6">
-                                                <span class="fw-bold ms-3">6</span>
-                                            </td>
-                                            <td class="text-end pe-0">136</td>
                                             <td class="text-end pe-0" data-order="Scheduled">
                                                 <!--begin::Badges-->
                                                 <div class="badge ${product.trangThai ? "badge-light-primary" : "badge-light-danger"}">${product.trangThai ? "Active" : "Locked"}</div>
