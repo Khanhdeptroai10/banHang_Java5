@@ -40,9 +40,9 @@ public class HoaDonChiTietController {
 
     @GetMapping("/order-details-by-order")
     public String getAllHoaDonChiTietByHoaDonId(@RequestParam("id") String id,
-                                                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
-                                                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
-                                                             Model model) {
+                                                @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                                                @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                                                Model model) {
         Page<HoaDonChiTiet> hoaDonChiTietPage = PageUtil.createPage(hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(id), page, pageSize);
         model.addAttribute("orderDetails", hoaDonChiTietPage.getContent());
         model.addAttribute("currentPage", page);

@@ -55,11 +55,11 @@ public class SanPhamChiTietService {
     public List<SanPhamChiTiet> findByKey(String key) {
         List<SanPhamChiTiet> result = new ArrayList<>();
         for (SanPhamChiTiet sanPhamChiTiet : listSanPhamChiTiet) {
-            if (sanPhamChiTiet.getMaSPCT().contains(key) ||
-                    sanPhamChiTiet.getMauSac().getTen().contains(key) ||
-                    sanPhamChiTiet.getKichThuoc().getTen().contains(key) ||
-                    sanPhamChiTiet.getSanPham().getMaSP().contains(key) ||
-                    sanPhamChiTiet.getSanPham().getTen().contains(key)) {
+            if (sanPhamChiTiet.getMaSPCT().toLowerCase().contains(key.toLowerCase()) ||
+                    sanPhamChiTiet.getMauSac().getTen().toLowerCase().contains(key.toLowerCase()) ||
+                    sanPhamChiTiet.getKichThuoc().getTen().toLowerCase().contains(key.toLowerCase()) ||
+                    sanPhamChiTiet.getSanPham().getMaSP().toLowerCase().contains(key.toLowerCase()) ||
+                    sanPhamChiTiet.getSanPham().getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(sanPhamChiTiet);
             }
         }

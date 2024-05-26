@@ -427,6 +427,12 @@
                                                      data-kt-menu="true">
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
+                                                        <a href="/product-details-by-product?id=${product.id}"
+                                                           class="menu-link px-3">Detail</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
                                                         <a href="/products/update?id=${product.id}"
                                                            class="menu-link px-3">Edit</a>
                                                     </div>

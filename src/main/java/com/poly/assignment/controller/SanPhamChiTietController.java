@@ -65,6 +65,20 @@ public class SanPhamChiTietController {
         return "/product-details.jsp";
     }
 
+    @GetMapping("/product-details-by-product")
+    public String getAllSanPhamChiTietBySanPhamId(@RequestParam("id") String id,
+                                                  @ModelAttribute("sanPhamChiTiet") SanPhamChiTiet sanPhamChiTiet,
+                                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                                                  @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                                                  Model model) {
+        Page<SanPhamChiTiet> sanPhamChiTietPage = PageUtil.createPage(sanPhamChiTietService.findAllSanPhamChiTietBySanPham(id), page, pageSize);
+        model.addAttribute("productDetails", sanPhamChiTietPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", sanPhamChiTietPage.getTotalPages());
+        return "/product-details-table.jsp";
+    }
+
     @GetMapping("/product-{pid}/details/search")
     public String findByKey(@PathVariable("pid") String pid,
                             @RequestParam("key") String key,
@@ -80,6 +94,23 @@ public class SanPhamChiTietController {
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("totalPages", sanPhamChiTietPage.getTotalPages());
         return "redirect:/product-" + pid + "/details";
+    }
+
+    @GetMapping("/product-details/table/search")
+    public String findByKey(@RequestParam("key") String key,
+                            @ModelAttribute("sanPhamChiTiet") SanPhamChiTiet sanPhamChiTiet,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
+                            Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<SanPhamChiTiet> sanPhamChiTietPage = PageUtil.createPage(sanPhamChiTietService.findByKey(key), page, pageSize);
+        model.addAttribute("productDetails", sanPhamChiTietPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", sanPhamChiTietPage.getTotalPages());
+        return "/product-details-table.jsp";
     }
 
     @ModelAttribute("kichThuocList")
