@@ -23,8 +23,8 @@ public class HoaDonChiTietService {
         listHoaDonChiTiet.add(new HoaDonChiTiet("5", new HoaDon("5", new NhanVien("5", "NV05", "Nguyen Van E", "e12345", "123456", false, true), new KhachHang("4", "KH04", "Luu Thi Hai Yen", "0323452345", true), LocalDateTime.now(), true), new SanPhamChiTiet("2", "SPCT02", "Ke soc", new KichThuoc("2", "KT02", "M", true), new MauSac("3", "MS03", "Do", true), new SanPham("3", "SP03", "Ao hoodie", "https://bizweb.dktcdn.net/100/438/408/products/smm4073-tra-5.jpg?v=1690163848063", true), 10, 100.0, "https://bizweb.dktcdn.net/100/438/408/products/smm4073-xnh-4-5f31f3af-196e-474f-80eb-ce0b4617d518.jpg?v=1690163848063", true), 2, 100.0, true));
     }
 
-    public Page<HoaDonChiTiet> findAll(int page, int pageSize) {
-        return PageUtil.createPage(listHoaDonChiTiet, page, pageSize);
+    public List<HoaDonChiTiet> findAll() {
+        return listHoaDonChiTiet;
     }
 
     public HoaDonChiTiet findById(String id) {

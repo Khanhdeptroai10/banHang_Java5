@@ -1,9 +1,6 @@
 package com.poly.assignment.controller;
 
-import com.poly.assignment.entity.Auth;
-import com.poly.assignment.entity.HoaDon;
-import com.poly.assignment.entity.KhachHang;
-import com.poly.assignment.entity.SanPhamChiTiet;
+import com.poly.assignment.entity.*;
 import com.poly.assignment.service.GioHangService;
 import com.poly.assignment.service.HoaDonChiTietService;
 import com.poly.assignment.service.HoaDonService;
@@ -70,13 +67,13 @@ public class HoaDonController {
         return khachHangService.findAll();
     }
 
-    @ModelAttribute("status")
-    public Map<Boolean, String> getStatus() {
-        Map<Boolean, String> map = new LinkedHashMap<>();
-        map.put(true, "Success");
-        map.put(false, "Canceled");
-        return map;
-    }
+//    @ModelAttribute("status")
+//    public Map<Boolean, String> getStatus() {
+//        Map<Boolean, String> map = new LinkedHashMap<>();
+//        map.put(true, "Success");
+//        map.put(false, "Canceled");
+//        return map;
+//    }
 
     @PostMapping("/orders/create")
     public String createOrder(@Valid @ModelAttribute("hoaDon") HoaDon hoaDon,
@@ -94,15 +91,25 @@ public class HoaDonController {
 
         hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
         hoaDon.setNhanVien(Auth.getLoggedInNhanVien());
+        hoaDon.setTrangThai(true);
 
         if (id != null && !id.isBlank()) {
             hoaDon.setId(id);
             hoaDonService.update(hoaDon);
         } else {
-            hoaDonService.create(hoaDon);
+            HoaDon hoaDon1 = hoaDonService.create(hoaDon);
+            gioHangService.findAll().forEach(gioHang -> {
+                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
+                hoaDonChiTiet.setHoaDon(hoaDon1);
+                hoaDonChiTiet.setSanPhamChiTiet(gioHang.getSanPhamChiTiet());
+                hoaDonChiTiet.setDonGia(gioHang.getSanPhamChiTiet().getDonGia());
+                hoaDonChiTiet.setSoLuong(gioHang.getQuantity());
+                hoaDonChiTiet.setTrangThai(true);
+                hoaDonChiTietService.create(hoaDonChiTiet);
+            });
         }
 
-        return "redirect:/checkout";
+        return "redirect:/orders/table";
     }
 
     @GetMapping("/orders/cancel")

@@ -52,10 +52,11 @@ public class HoaDonService {
         return result;
     }
 
-    public void create(HoaDon hoaDon) {
+    public HoaDon create(HoaDon hoaDon) {
         hoaDon.setId(UUID.randomUUID().toString());
         hoaDon.setNgayMuaHang(LocalDateTime.now());
         listHoaDon.add(hoaDon);
+        return hoaDon;
     }
 
     public void update(HoaDon hoaDon) {

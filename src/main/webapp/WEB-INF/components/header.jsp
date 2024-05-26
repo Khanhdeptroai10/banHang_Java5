@@ -3165,7 +3165,7 @@
                             </table>
                             <!--end::Table-->
                             <!--begin::Actions-->
-                            <a href="/cart" class="btn btn-primary w-100">Go to cart</a>
+                            <a href="/cart" class="btn btn-primary w-100">Go to checkout</a>
                             <!--end::Actions-->
                         </div>
                         <!--end::Tab content-->

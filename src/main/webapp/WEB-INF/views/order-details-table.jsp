@@ -8,7 +8,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Order edit</title>
+    <title>Order detail edit</title>
 </head>
 <body>
 <!--begin::Main-->
@@ -185,9 +185,9 @@
                                 </select>
                                 <!--end::Select2-->
                             </div>
-                            <!--begin::Order detail table-->
-                            <a href="/order-details/table" class="btn btn-primary">Go to order detail table</a>
-                            <!--end::Order detail table-->
+                            <!--begin::Order table-->
+                            <a href="/orders/table" class="btn btn-primary">Go to order table</a>
+                            <!--end::Order table-->
                         </div>
                         <!--end::Card toolbar-->
                     </div>
@@ -203,17 +203,18 @@
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-100">Order</th>
-                                <th class="text-end min-w-70px">Order code</th>
-                                <th class="text-end min-w-70px">Employee</th>
-                                <th class="text-end min-w-100px">Customer</th>
-                                <th class="text-end min-w-100px">Date</th>
+                                <th class="min-w-100px">Order detail</th>
+                                <th class="text-end min-w-70px">Order detail code</th>
+                                <th class="text-end min-w-70px">Order</th>
+                                <th class="text-end min-w-100px">Product detail</th>
+                                <th class="text-end min-w-100px">Quantity</th>
+                                <th class="text-end min-w-100px">Price</th>
                                 <th class="text-end min-w-100px">Status</th>
                                 <th class="text-end min-w-70px">Actions</th>
                             </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
-                            <c:forEach items="${orders}" var="order" varStatus="i">
+                            <c:forEach items="${orderDetails}" var="orderDetail" varStatus="i">
                                 <tr>
                                     <td>
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -229,20 +230,21 @@
                                             <!--end::Thumbnail-->
                                             <div class="ms-5">
                                                 <!--begin::Title-->
-                                                <a href="apps/ecommerce/catalog/edit-product.html" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">Order #${order.id.length() > 7 ? order.id.substring(0, 7) : order.id}</a>
+                                                <a href="apps/ecommerce/catalog/edit-product.html" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">Order detail #${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</a>
                                                 <!--end::Title-->
                                             </div>
                                         </div>
                                     </td>
                                     <td class="text-end pe-0">
-                                        <span class="fw-bold">${order.id.length() > 7 ? order.id.substring(0, 7) : order.id}</span>
+                                        <span class="fw-bold">${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</span>
                                     </td>
-                                    <td class="text-end pe-0">${order.nhanVien.maNV} - ${order.nhanVien.ten}</td>
-                                    <td class="text-end pe-0">${order.khachHang.maKH} - ${order.khachHang.ten}</td>
-                                    <td class="text-end pe-0">${order.ngayMuaHang}</td>
+                                    <td class="text-end pe-0">#${orderDetail.hoaDon.id.length() > 7 ? orderDetail.hoaDon.id.substring(0, 7) : orderDetail.hoaDon.id}</td>
+                                    <td class="text-end pe-0">${orderDetail.sanPhamChiTiet.maSPCT} - ${orderDetail.sanPhamChiTiet.sanPham.ten} - ${orderDetail.sanPhamChiTiet.ten}</td>
+                                    <td class="text-end pe-0">${orderDetail.soLuong}</td>
+                                    <td class="text-end pe-0">${orderDetail.donGia}</td>
                                     <td class="text-end pe-0" data-order="Scheduled">
                                         <!--begin::Badges-->
-                                        <div class="badge ${order.trangThai ? "badge-light-success" : "badge-light-danger"}">${order.trangThai ? "Success" : "Canceled"}</div>
+                                        <div class="badge ${orderDetail.trangThai ? "badge-light-success" : "badge-light-danger"}">${orderDetail.trangThai ? "Success" : "Canceled"}</div>
                                         <!--end::Badges-->
                                     </td>
                                     <td class="text-end">
@@ -252,12 +254,12 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/order-details-by-order?id=${order.id}" class="menu-link px-3">Detail</a>
+                                                <a href="#" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/orders/cancel?id=${order.id}" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Cancel</a>
+                                                <a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Cancel</a>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
@@ -268,25 +270,20 @@
                             </tbody>
                         </table>
                         <!--end::Table-->
-                        <!--begin::Input group=-->
-                        <div class="fv-row mb-8 fv-plugins-icon-container">
-                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">${error}</div>
-                        </div>
-                        <!--end::Input group=-->
                         <!--begin::Pagination-->
                         <ul class="pagination">
                             <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                <a href="/orders/table?page=${currentPage - 1}&pageSize=${pageSize}"
+                                <a href="/order-details/table?page=${currentPage - 1}&pageSize=${pageSize}"
                                    class="page-link"><i class="previous"></i></a>
                             </li>
                             <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
                                 <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                    <a href="/orders/table?page=${pageNumber}&pageSize=${pageSize}"
+                                    <a href="/order-details/table?page=${pageNumber}&pageSize=${pageSize}"
                                        class="page-link">${pageNumber + 1}</a>
                                 </li>
                             </c:forEach>
                             <li class="page-item next">
-                                <a href="/orders/table?page=${currentPage + 1}&pageSize=${pageSize}"
+                                <a href="/order-details/table?page=${currentPage + 1}&pageSize=${pageSize}"
                                    class="page-link"><i class="next"></i></a>
                             </li>
                         </ul>

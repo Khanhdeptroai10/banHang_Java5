@@ -24,7 +24,6 @@ public class HoaDon {
 
     private LocalDateTime ngayMuaHang;
 
-    @NotNull(message = "Vui long chon trang thai")
     private Boolean trangThai;
 
 }

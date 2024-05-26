@@ -278,7 +278,7 @@
                             <!--end::Button-->
                             <!--begin::Button-->
                             <button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary" ${cart.size() == 0 ? "disabled" : ""}>
-                                <span class="indicator-label">Go to checkout</span>
+                                <span class="indicator-label">Save changes</span>
                                 <span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                             </button>
@@ -332,25 +332,25 @@
                                         <!--end::Error-->
                                     </div>
                                     <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="fv-row">
-                                        <!--begin::Label-->
-                                        <label class="required form-label">Order status</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <div class="form-check form-check-custom form-check-solid mb-2">
-                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "
-                                                               class="form-check-input"/>
-                                        </div>
-                                        <!--end::Input-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set status of the order to process.</div>
-                                        <!--end::Description-->
-                                        <!--begin::Error-->
-                                        <form:errors path="trangThai" class="text-danger fs-7"/>
-                                        <!--end::Error-->
-                                    </div>
-                                    <!--end::Input group-->
+<%--                                    <!--begin::Input group-->--%>
+<%--                                    <div class="fv-row">--%>
+<%--                                        <!--begin::Label-->--%>
+<%--                                        <label class="required form-label">Order status</label>--%>
+<%--                                        <!--end::Label-->--%>
+<%--                                        <!--begin::Input-->--%>
+<%--                                        <div class="form-check form-check-custom form-check-solid mb-2">--%>
+<%--                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "--%>
+<%--                                                               class="form-check-input"/>--%>
+<%--                                        </div>--%>
+<%--                                        <!--end::Input-->--%>
+<%--                                        <!--begin::Description-->--%>
+<%--                                        <div class="text-muted fs-7">Set status of the order to process.</div>--%>
+<%--                                        <!--end::Description-->--%>
+<%--                                        <!--begin::Error-->--%>
+<%--                                        <form:errors path="trangThai" class="text-danger fs-7"/>--%>
+<%--                                        <!--end::Error-->--%>
+<%--                                    </div>--%>
+<%--                                    <!--end::Input group-->--%>
                                 </div>
                             </div>
                             <!--end::Card header-->

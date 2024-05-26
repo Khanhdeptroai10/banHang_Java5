@@ -95,12 +95,12 @@ public class GioHangController {
         return khachHangService.findAll();
     }
 
-    @ModelAttribute("status")
-    public Map<Boolean, String> getStatus() {
-        Map<Boolean, String> map = new LinkedHashMap<>();
-        map.put(true, "Success");
-        map.put(false, "Canceled");
-        return map;
-    }
+//    @ModelAttribute("status")
+//    public Map<Boolean, String> getStatus() {
+//        Map<Boolean, String> map = new LinkedHashMap<>();
+//        map.put(true, "Success");
+//        map.put(false, "Canceled");
+//        return map;
+//    }
 
 }
