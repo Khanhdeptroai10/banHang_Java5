@@ -23,7 +23,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
-                        Add Order</h1>
+                        Update Order</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -153,8 +153,9 @@
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container container-xxl">
                 <!--begin::Form-->
-                <form:form action="/orders/create" method="post" modelAttribute="hoaDon" id="kt_ecommerce_edit_order_form" class="form d-flex flex-column flex-lg-row"
-                      data-kt-redirect="apps/ecommerce/sales/listing.html">
+                <form:form action="/orders/update" method="post" modelAttribute="hoaDon"
+                           id="kt_ecommerce_edit_order_form" class="form d-flex flex-column flex-lg-row"
+                           data-kt-redirect="apps/ecommerce/sales/listing.html">
 
                     <!--begin::Main column-->
                     <div class="d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10 mb-7 me-7">
@@ -205,32 +206,34 @@
                                         </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-600">
-                                        <c:forEach items="${cart}" var="cartItem">
+                                        <c:forEach items="${orderDetails}" var="hoaDonChiTiet">
                                             <tr>
                                                 <td>
                                                     <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="checkbox" value="1" checked disabled/>
+                                                        <input class="form-check-input" type="checkbox" value="1"
+                                                               checked disabled/>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center"
                                                          data-kt-ecommerce-edit-order-filter="product"
-                                                         data-kt-ecommerce-edit-order-id="product_${cartItem.sanPhamChiTiet.id}">
+                                                         data-kt-ecommerce-edit-order-id="product_${hoaDonChiTiet.id}">
                                                         <!--begin::Thumbnail-->
                                                         <a href="apps/ecommerce/catalog/edit-product.html"
                                                            class="symbol symbol-50px">
                                                             <span class="symbol-label"
-                                                                  style="background-image:url(${cartItem.sanPhamChiTiet.hinhAnh});"></span>
+                                                                  style="background-image:url(${hoaDonChiTiet.sanPhamChiTiet.hinhAnh});"></span>
                                                         </a>
                                                         <!--end::Thumbnail-->
                                                         <div class="ms-5">
                                                             <!--begin::Title-->
                                                             <a href="apps/ecommerce/catalog/edit-product.html"
-                                                               class="text-gray-800 text-hover-primary fs-5 fw-bold">${cartItem.sanPhamChiTiet.sanPham.ten} - ${cartItem.sanPhamChiTiet.ten}</a>
+                                                               class="text-gray-800 text-hover-primary fs-5 fw-bold">${hoaDonChiTiet.sanPhamChiTiet.sanPham.ten}
+                                                                - ${hoaDonChiTiet.sanPhamChiTiet.ten}</a>
                                                             <!--end::Title-->
                                                             <!--begin::Price-->
                                                             <div class="fw-semibold fs-7">Price: $
-                                                                <span data-kt-ecommerce-edit-order-filter="price">${cartItem.sanPhamChiTiet.donGia}</span>
+                                                                <span data-kt-ecommerce-edit-order-filter="price">${hoaDonChiTiet.donGia}</span>
                                                             </div>
                                                             <!--end::Price-->
                                                             <!--begin::SKU-->
@@ -241,17 +244,16 @@
                                                 </td>
                                                 <td class="text-end pe-5" data-order="5">
                                                     <div class="input-group w-50 m-auto">
-                                                        <button onclick="location.href='/decrease-quantity-in-cart-item?cid=${cartItem.id}'" class="btn btn-secondary" ${cartItem.quantity <= 1 ? "disabled" : ""}>-</button>
-                                                        <input type="text" class="form-control" value="${cartItem.quantity}"/>
-                                                        <button onclick="location.href='/increase-quantity-in-cart-item?cid=${cartItem.id}'" class="btn btn-secondary">+</button>
+                                                        <input type="text" class="form-control" value="${hoaDonChiTiet.soLuong}" readonly/>
                                                     </div>
                                                 </td>
                                                 <td class="text-end pe-5" data-order="5">
-                                                    <span class="fw-bold text-primary ms-3">${cartItem.quantity * cartItem.sanPhamChiTiet.donGia}</span>
+                                                    <span class="fw-bold text-primary ms-3">${hoaDonChiTiet.soLuong * hoaDonChiTiet.donGia}</span>
                                                 </td>
                                                 <td>
                                                     <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <div><a href="/delete-item-in-cart?pdid=${cartItem.sanPhamChiTiet.id}"><i class="ki-duotone ki-trash fs-2">
+                                                        <div><a href="#"><i
+                                                                class="ki-duotone ki-trash fs-2">
                                                             <span class="path1"></span>
                                                             <span class="path2"></span>
                                                             <span class="path3"></span>
@@ -277,7 +279,7 @@
                                class="btn btn-light me-5">Cancel</a>
                             <!--end::Button-->
                             <!--begin::Button-->
-                            <button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary" ${cart.size() == 0 ? "disabled" : ""}>
+                            <button type="submit" id="kt_ecommerce_edit_order_submit" class="btn btn-primary">
                                 <span class="indicator-label">Save changes</span>
                                 <span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -306,10 +308,12 @@
                                         <label class="form-label">Order ID</label>
                                         <!--end::Label-->
                                         <!--begin::Auto-generated ID-->
-                                        <div class="fw-bold fs-3">#12594</div>
+                                        <div class="fw-bold fs-3">
+                                            #${hoaDon.id.length() > 7 ? hoaDon.id.substring(0, 7) : hoaDon.id}</div>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
+                                    <input type="hidden" name="id" value="${hoaDon.id}"/>
                                     <!--begin::Input group-->
                                     <div class="fv-row">
                                         <!--begin::Label-->
@@ -326,6 +330,25 @@
                                         <!--end::Description-->
                                         <!--begin::Error-->
                                         <form:errors path="khachHang" class="text-danger fs-7"/>
+                                        <!--end::Error-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="fv-row">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Status</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <div class="form-check form-check-custom form-check-solid mb-2">
+                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "
+                                                               class="form-check-input"/>
+                                        </div>
+                                        <!--end::Input-->
+                                        <!--begin::Description-->
+                                        <div class="text-muted fs-7">Set status in order</div>
+                                        <!--end::Description-->
+                                        <!--begin::Error-->
+                                        <form:errors path="trangThai" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                     </div>
                                     <!--end::Input group-->

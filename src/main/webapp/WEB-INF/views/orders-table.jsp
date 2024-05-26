@@ -288,6 +288,11 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
+                                                <a href="/orders/update/${order.id}" class="menu-link px-3">Update</a>
+                                            </div>
+                                            <!--end::Menu item-->
+                                            <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
                                                 <a href="/orders/cancel?id=${order.id}" class="menu-link px-3"
                                                    data-kt-ecommerce-product-filter="delete_row">Cancel</a>
                                             </div>

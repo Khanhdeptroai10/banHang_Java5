@@ -75,6 +75,7 @@ public class HoaDonService {
             hoaDonChiTiet.setSanPhamChiTiet(gioHang.getSanPhamChiTiet());
             hoaDonChiTiet.setSoLuong(gioHang.getQuantity());
             hoaDonChiTiet.setDonGia(gioHang.getSanPhamChiTiet().getDonGia());
+            hoaDonChiTiet.setTrangThai(true);
             hoaDonChiTietService.create(hoaDonChiTiet);
         });
         gioHangService.deleteAll();
@@ -86,13 +87,14 @@ public class HoaDonService {
             if (listHoaDon.get(i).getId().equals(hoaDon.getId())) {
                 hoaDon.setNhanVien(Auth.getLoggedInNhanVien());
                 hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
+                hoaDon.setNgayMuaHang(LocalDateTime.now());
                 listHoaDon.set(i, hoaDon);
             }
         }
     }
 
     public void cancel(String id) {
-        listHoaDon.forEach(hoaDon -> hoaDon.setTrangThai(false));
+        findById(id).setTrangThai(false);
         hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(id).forEach(hoaDonChiTiet -> hoaDonChiTiet.setTrangThai(false));
     }
 

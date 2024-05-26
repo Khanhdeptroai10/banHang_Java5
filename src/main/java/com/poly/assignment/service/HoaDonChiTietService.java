@@ -62,11 +62,7 @@ public class HoaDonChiTietService {
     }
 
     public void cancel(String id) {
-        for (HoaDonChiTiet hoaDonChiTiet: listHoaDonChiTiet) {
-            if (hoaDonChiTiet.getId().equals(id)) {
-                hoaDonChiTiet.setTrangThai(false);
-            }
-        }
+        findById(id).setTrangThai(false);
     }
 
 }
