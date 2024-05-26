@@ -27,8 +27,6 @@ public class HoaDonController {
 
     private final HoaDonService hoaDonService;
 
-    private final HoaDonChiTietService hoaDonChiTietService;
-
     private final KhachHangService khachHangService;
 
     private final GioHangService gioHangService;
@@ -89,24 +87,10 @@ public class HoaDonController {
             return "/cart.jsp";
         }
 
-        hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
-        hoaDon.setNhanVien(Auth.getLoggedInNhanVien());
-        hoaDon.setTrangThai(true);
-
         if (id != null && !id.isBlank()) {
-            hoaDon.setId(id);
             hoaDonService.update(hoaDon);
         } else {
-            HoaDon hoaDon1 = hoaDonService.create(hoaDon);
-            gioHangService.findAll().forEach(gioHang -> {
-                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
-                hoaDonChiTiet.setHoaDon(hoaDon1);
-                hoaDonChiTiet.setSanPhamChiTiet(gioHang.getSanPhamChiTiet());
-                hoaDonChiTiet.setDonGia(gioHang.getSanPhamChiTiet().getDonGia());
-                hoaDonChiTiet.setSoLuong(gioHang.getQuantity());
-                hoaDonChiTiet.setTrangThai(true);
-                hoaDonChiTietService.create(hoaDonChiTiet);
-            });
+            hoaDonService.create(hoaDon);
         }
 
         return "redirect:/orders/table";
@@ -132,10 +116,6 @@ public class HoaDonController {
         }
 
         hoaDonService.cancel(id);
-
-        hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(id).forEach(hoaDonChiTiet ->
-                hoaDonChiTietService.cancel(hoaDonChiTiet.getId())
-        );
 
         return "redirect:/orders/table";
     }
