@@ -184,7 +184,8 @@
                             <!--begin::Form-->
                             <form:form id="kt_account_profile_details_form"
                                        class="form fv-plugins-bootstrap5 fv-plugins-framework"
-                                       action="/products/create" method="post" modelAttribute="sanPham">
+                                       action="/products/create" method="post" modelAttribute="sanPham"
+                                       enctype="multipart/form-data">
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <!--begin::Input group-->
@@ -206,7 +207,7 @@
                                                     <span class="path2"></span>
                                                 </i>
                                                 <!--begin::Inputs-->
-                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                                <input type="file" name="file" accept=".png, .jpg, .jpeg"/>
                                                 <input type="hidden" name="avatar_remove">
                                                 <!--end::Inputs-->
                                             </label>
@@ -242,7 +243,7 @@
                                         <!--end::Description-->
                                     </div>
                                     <!--end::Input group-->
-                                    <input type="hidden" name="id" value="${sanPham.id}" />
+                                    <input type="hidden" name="id" value="${sanPham.id}"/>
                                     <!--begin::Input group-->
                                     <div class="mb-10 fv-row">
                                         <!--begin::Label-->
@@ -250,13 +251,13 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <form:input path="maSP" class="form-control mb-2"
-                                                    placeholder="Product code" />
+                                                    placeholder="Product code"/>
                                         <!--end::Input-->
                                         <!--begin::Description-->
                                         <div class="text-muted fs-7">Enter the product code.</div>
                                         <!--end::Description-->
                                         <!--begin::Error-->
-                                        <form:errors path="maSP" class="text-danger fs-7" />
+                                        <form:errors path="maSP" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                     </div>
                                     <!--end::Input group-->
@@ -267,13 +268,13 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <form:input path="ten" class="form-control mb-2"
-                                                    placeholder="Name" />
+                                                    placeholder="Name"/>
                                         <!--end::Input-->
                                         <!--begin::Description-->
                                         <div class="text-muted fs-7">Enter the product's name.</div>
                                         <!--end::Description-->
                                         <!--begin::Error-->
-                                        <form:errors path="ten" class="text-danger fs-7" />
+                                        <form:errors path="ten" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                     </div>
                                     <!--end::Input group-->
@@ -284,7 +285,8 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <div class="form-check form-check-custom form-check-solid mb-2">
-                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" " class="form-check-input" />
+                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "
+                                                               class="form-check-input"/>
                                         </div>
                                         <!--end::Input-->
                                         <!--begin::Description-->
@@ -293,7 +295,7 @@
                                         </div>
                                         <!--end::Description-->
                                         <!--begin::Error-->
-                                        <form:errors path="trangThai" class="text-danger fs-7" />
+                                        <form:errors path="trangThai" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                         <!--begin::Actions-->
                                         <div class="card-footer d-flex justify-content-end py-6 px-9">

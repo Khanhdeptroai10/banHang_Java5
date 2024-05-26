@@ -26,10 +26,6 @@ public class SanPhamController {
 
     private final SanPhamChiTietService sanPhamChiTietService;
 
-    private final FileUploadService fileUploadService;
-
-    private final GioHangService gioHangService;
-
     @GetMapping("/products/edit")
     public String pEdit(@RequestParam(value = "pid", required = false) String pid, Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
@@ -86,10 +82,11 @@ public class SanPhamController {
     @PostMapping("/products/create")
     public String createProduct(@Valid @ModelAttribute("sanPham") SanPham sanPham,
                                 BindingResult result,
+                                MultipartFile file,
                                 @RequestParam(value = "id", required = false) String id,
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
-                                Model model) {
+                                Model model) throws IOException {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
@@ -104,9 +101,9 @@ public class SanPhamController {
 
         if (id != null && !id.isBlank()) {
             sanPham.setId(id);
-            sanPhamService.update(sanPham);
+            sanPhamService.update(sanPham, file);
         } else {
-            sanPhamService.create(sanPham);
+            sanPhamService.create(sanPham, file);
         }
 
         return "redirect:/products/table";

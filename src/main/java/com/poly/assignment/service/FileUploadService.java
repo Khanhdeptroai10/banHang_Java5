@@ -16,18 +16,21 @@ public class FileUploadService {
     private final ServletContext servletContext;
 
     public String uploadFile(MultipartFile multipartFile) throws IOException {
-        String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        String uploadDir = servletContext.getRealPath("/WEB-INF/public/upload");
+        if (multipartFile != null && !multipartFile.isEmpty()) {
+            String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+            String uploadDir = servletContext.getRealPath("/WEB-INF/public/upload");
 
-        File uploadDirectory = new File(uploadDir);
-        if (!uploadDirectory.exists()) {
-            uploadDirectory.mkdirs();
+            File uploadDirectory = new File(uploadDir);
+            if (!uploadDirectory.exists()) {
+                uploadDirectory.mkdirs();
+            }
+
+            File file = new File(uploadDirectory, filename);
+            multipartFile.transferTo(file);
+
+            return "http://localhost:7777/public/upload/" + filename;
         }
-
-        File file = new File(uploadDirectory, filename);
-        multipartFile.transferTo(file);
-
-        return file.getAbsolutePath();
+        return null;
     }
 
 }

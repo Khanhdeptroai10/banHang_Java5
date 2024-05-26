@@ -2,9 +2,12 @@ package com.poly.assignment.service;
 
 import com.poly.assignment.entity.SanPham;
 import com.poly.assignment.util.PageUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -13,6 +16,9 @@ import java.util.UUID;
 public class SanPhamService {
 
     List<SanPham> listSanPham = new ArrayList<>();
+
+    @Autowired
+    FileUploadService fileUploadService;
 
     public SanPhamService() {
         listSanPham.add(new SanPham("1", "SP01", "Ao so mi", "https://bizweb.dktcdn.net/100/438/408/products/smm4073-den-5-c0028085-1e0a-4909-8a9a-254b104651d7.jpg?v=1690163848063", true));
@@ -52,14 +58,16 @@ public class SanPhamService {
         return result;
     }
 
-    public void create(SanPham sanPham) {
+    public void create(SanPham sanPham, MultipartFile file) throws IOException {
         sanPham.setId(UUID.randomUUID().toString());
+        sanPham.setHinhAnh(fileUploadService.uploadFile(file));
         listSanPham.add(sanPham);
     }
 
-    public void update(SanPham sanPham) {
+    public void update(SanPham sanPham, MultipartFile file) throws IOException {
         for (int i = 0; i < listSanPham.size(); i++) {
             if (listSanPham.get(i).getId().equals(sanPham.getId())) {
+                sanPham.setHinhAnh(fileUploadService.uploadFile(file));
                 listSanPham.set(i, sanPham);
             }
         }
