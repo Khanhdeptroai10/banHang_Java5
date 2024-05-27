@@ -32,12 +32,14 @@ public class GioHangController {
             return "redirect:/login";
         }
         model.addAttribute("cart", gioHangService.findAll());
+        model.addAttribute("totalCost", gioHangService.getTotalCost());
         return "/cart.jsp";
     }
 
     @GetMapping("/add-to-cart")
     public String addToCart(@RequestParam("pid") String pid,
-                            @RequestParam("pdid") String pdid) {
+                            @RequestParam("pdid") String pdid,
+                            Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
@@ -46,38 +48,40 @@ public class GioHangController {
 
             gioHangService.addToCart(new GioHang(UUID.randomUUID().toString(), sanPhamChiTiet, 1));
         }
+        model.addAttribute("totalCost", gioHangService.getTotalCost());
         return "redirect:/product-" + pid + "/details";
     }
 
     @GetMapping("/decrease-quantity-in-cart-item")
-    public String decreaseQuantityInCart(@RequestParam("cid") String cid) {
+    public String decreaseQuantityInCart(@RequestParam("cid") String cid, Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (cid != null && !cid.equals(""))
             gioHangService.decreaseQuantityInCart(cid);
-        return "redirect:/checkout";
+        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        return "redirect:/cart";
     }
 
     @GetMapping("/increase-quantity-in-cart-item")
-    public String increaseQuantityInCart(@RequestParam("cid") String cid) {
+    public String increaseQuantityInCart(@RequestParam("cid") String cid, Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (cid != null && !cid.equals(""))
             gioHangService.increaseQuantityInCart(cid);
-
-        return "redirect:/checkout";
-
+        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        return "redirect:/cart";
     }
 
     @GetMapping("/delete-item-in-cart")
-    public String deleteItemInCart(@RequestParam("pdid") String pdid) {
+    public String deleteItemInCart(@RequestParam("pdid") String pdid, Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
         if (pdid != null && !pdid.equals(""))
             gioHangService.deleteItemInCart(pdid);
+        model.addAttribute("totalCost", gioHangService.getTotalCost());
         return "redirect:/cart";
     }
 

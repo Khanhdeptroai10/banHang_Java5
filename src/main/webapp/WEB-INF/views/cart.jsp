@@ -185,7 +185,7 @@
                                         <!--begin::Selected products-->
                                         <!--begin::Total price-->
                                         <div class="fw-bold fs-4">Total Cost: $
-                                            <span id="kt_ecommerce_edit_order_total_price">0.00</span></div>
+                                            <span id="kt_ecommerce_edit_order_total_price">${totalCost}</span></div>
                                         <!--end::Total price-->
                                     </div>
                                     <!--end::Input group-->
@@ -241,9 +241,9 @@
                                                 </td>
                                                 <td class="text-end pe-5" data-order="5">
                                                     <div class="input-group w-50 m-auto">
-                                                        <button onclick="location.href='/decrease-quantity-in-cart-item?cid=${cartItem.id}'" class="btn btn-secondary" ${cartItem.quantity <= 1 ? "disabled" : ""}>-</button>
+                                                        <a href="/decrease-quantity-in-cart-item?cid=${cartItem.id}" class="btn btn-secondary" ${cartItem.quantity <= 1 ? "disabled" : ""}>-</a>
                                                         <input type="text" class="form-control" value="${cartItem.quantity}"/>
-                                                        <button onclick="location.href='/increase-quantity-in-cart-item?cid=${cartItem.id}'" class="btn btn-secondary">+</button>
+                                                        <a href="/increase-quantity-in-cart-item?cid=${cartItem.id}" class="btn btn-secondary">+</a>
                                                     </div>
                                                 </td>
                                                 <td class="text-end pe-5" data-order="5">

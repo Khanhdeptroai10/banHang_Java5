@@ -69,4 +69,22 @@ public class GeneralController {
         return "/index.jsp";
     }
 
+    @GetMapping("/search")
+    public String findProductByKey(@RequestParam("key") String key,
+                                   @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                                   @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
+                                   Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<SanPham> sanPhamPage = PageUtil.createPage(sanPhamService.findByKey(key), page, pageSize);
+        model.addAttribute("products", sanPhamPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", sanPhamPage.getTotalPages());
+        model.addAttribute("cart", gioHangService.findAll());
+        model.addAttribute("nhanVien", Auth.getLoggedInNhanVien());
+        return "/index.jsp";
+    }
+
 }

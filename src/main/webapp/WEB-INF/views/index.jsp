@@ -44,6 +44,25 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
+                <!--begin::Form search-->
+                <form action="/search" method="get">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <!--begin::Search-->
+                        <div class="d-flex align-items-center position-relative my-1">
+                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <input type="text" name="key" data-kt-ecommerce-product-filter="search"
+                                   class="form-control form-control-solid w-250px ps-12"
+                                   placeholder="Search product"/>
+                        </div>
+                        <!--end::Search-->
+                    </div>
+                    <!--end::Card title-->
+                </form>
+                <!--end::Form search-->
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -60,7 +79,7 @@
                         <div class="row g-5 gx-xl-10 mb-5 mb-xl-10">
                             <c:forEach items="${products}" var="product">
                                 <!--begin::Col-->
-                                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
+                                <div ${products.size() == 0 ? "hidden" : ""} class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
                                     <!--begin::Product card-->
                                     <div class="card-xl-stretch me-md-6">
                                         <!--begin::Overlay-->
@@ -123,9 +142,9 @@
                                             </div>
                                             <!--end::Rating-->
                                             <!--begin::Price-->
-<%--                                            <div class="fw-bold fs-4 text-gray-900 mt-2 mb-2">--%>
-<%--                                                ₫499,000--%>
-<%--                                            </div>--%>
+                                                <%--                                            <div class="fw-bold fs-4 text-gray-900 mt-2 mb-2">--%>
+                                                <%--                                                ₫499,000--%>
+                                                <%--                                            </div>--%>
                                             <!--end::Price-->
                                         </div>
                                         <!--end::Body-->
@@ -134,23 +153,29 @@
                                 </div>
                                 <!--end::Col-->
                             </c:forEach>
+                            <div ${products.size() > 0 ? "hidden" : ""}>No product</div>
                         </div>
                         <!--end::Row-->
-                        <!--begin::Pagination-->
-                        <ul class="pagination">
-                            <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                <a href="?page=${currentPage - 1}&pageSize=${pageSize}" class="page-link"><i class="previous"></i></a>
-                            </li>
-                            <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
-                                <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                    <a href="?page=${pageNumber}&pageSize=${pageSize}" class="page-link">${pageNumber + 1}</a>
+                        <c:if test="${totalPages > 0}">
+                            <!--begin::Pagination-->
+                            <ul class="pagination">
+                                <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
+                                    <a href="?page=${currentPage - 1}&pageSize=${pageSize}" class="page-link"><i
+                                            class="previous"></i></a>
                                 </li>
-                            </c:forEach>
-                            <li class="page-item next">
-                                <a href="?page=${currentPage + 1}&pageSize=${pageSize}" class="page-link"><i class="next"></i></a>
-                            </li>
-                        </ul>
-                        <!--end::Pagination-->
+                                <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                                    <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
+                                        <a href="?page=${pageNumber}&pageSize=${pageSize}"
+                                           class="page-link">${pageNumber + 1}</a>
+                                    </li>
+                                </c:forEach>
+                                <li class="page-item next">
+                                    <a href="?page=${currentPage + 1}&pageSize=${pageSize}" class="page-link"><i
+                                            class="next"></i></a>
+                                </li>
+                            </ul>
+                            <!--end::Pagination-->
+                        </c:if>
                     </div>
                     <!--end::Col-->
                 </div>
