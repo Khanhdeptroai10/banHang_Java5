@@ -184,7 +184,8 @@
                             <!--begin::Form-->
                             <form:form id="kt_account_profile_details_form"
                                        class="form fv-plugins-bootstrap5 fv-plugins-framework"
-                                       action="/product-details/create" method="post" modelAttribute="sanPhamChiTiet">
+                                       action="/product-details/create" method="post" modelAttribute="sanPhamChiTiet"
+                                       enctype="multipart/form-data">
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <!--begin::Input group-->
@@ -194,7 +195,7 @@
                                              data-kt-image-input="true">
                                             <!--begin::Preview existing avatar-->
                                             <div class="image-input-wrapper w-150px h-150px"
-                                                 style="background-image: url(${sanPham.hinhAnh})"></div>
+                                                 style="background-image: url(${sanPhamChiTiet.hinhAnh})"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
                                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
@@ -206,7 +207,7 @@
                                                     <span class="path2"></span>
                                                 </i>
                                                 <!--begin::Inputs-->
-                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg"/>
+                                                <input type="file" name="file" accept=".png, .jpg, .jpeg"/>
                                                 <input type="hidden" name="avatar_remove">
                                                 <!--end::Inputs-->
                                             </label>

@@ -5,9 +5,12 @@ import com.poly.assignment.entity.MauSac;
 import com.poly.assignment.entity.SanPham;
 import com.poly.assignment.entity.SanPhamChiTiet;
 import com.poly.assignment.util.PageUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -16,6 +19,18 @@ import java.util.UUID;
 public class SanPhamChiTietService {
 
     List<SanPhamChiTiet> listSanPhamChiTiet = new ArrayList<>();
+
+    @Autowired
+    KichThuocService kichThuocService;
+
+    @Autowired
+    MauSacService mauSacService;
+
+    @Autowired
+    SanPhamService sanPhamService;
+
+    @Autowired
+    FileUploadService fileUploadService;
 
     public SanPhamChiTietService() {
         listSanPhamChiTiet.add(new SanPhamChiTiet("1", "SPCT01", "Basic", new KichThuoc("1", "KT01", "S", true), new MauSac("1", "MS01", "Den", true), new SanPham("1", "SP01", "Ao so mi", "https://bizweb.dktcdn.net/100/438/408/products/smm4073-den-5-c0028085-1e0a-4909-8a9a-254b104651d7.jpg?v=1690163848063", true), 20, 50.0, "https://bizweb.dktcdn.net/100/438/408/products/smm4073-tra-5.jpg?v=1690163848063", true));
@@ -67,14 +82,22 @@ public class SanPhamChiTietService {
         return result;
     }
 
-    public void create(SanPhamChiTiet sanPhamChiTiet) {
+    public void create(SanPhamChiTiet sanPhamChiTiet, MultipartFile file) throws IOException {
         sanPhamChiTiet.setId(UUID.randomUUID().toString());
+        sanPhamChiTiet.setKichThuoc(kichThuocService.findById(sanPhamChiTiet.getKichThuoc().getId()));
+        sanPhamChiTiet.setMauSac(mauSacService.findById(sanPhamChiTiet.getMauSac().getId()));
+        sanPhamChiTiet.setSanPham(sanPhamService.findById(sanPhamChiTiet.getSanPham().getId()));
+        sanPhamChiTiet.setHinhAnh(fileUploadService.uploadFile(file));
         listSanPhamChiTiet.add(sanPhamChiTiet);
     }
 
-    public void update(SanPhamChiTiet sanPhamChiTiet) {
+    public void update(SanPhamChiTiet sanPhamChiTiet, MultipartFile file) throws IOException {
         for (int i = 0; i < listSanPhamChiTiet.size(); i++) {
             if (listSanPhamChiTiet.get(i).getId().equals(sanPhamChiTiet.getId())) {
+                sanPhamChiTiet.setKichThuoc(kichThuocService.findById(sanPhamChiTiet.getKichThuoc().getId()));
+                sanPhamChiTiet.setMauSac(mauSacService.findById(sanPhamChiTiet.getMauSac().getId()));
+                sanPhamChiTiet.setSanPham(sanPhamService.findById(sanPhamChiTiet.getSanPham().getId()));
+                sanPhamChiTiet.setHinhAnh(fileUploadService.uploadFile(file));
                 listSanPhamChiTiet.set(i, sanPhamChiTiet);
             }
         }

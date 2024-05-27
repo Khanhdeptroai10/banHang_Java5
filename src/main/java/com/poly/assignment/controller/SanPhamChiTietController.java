@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -139,10 +140,11 @@ public class SanPhamChiTietController {
     @PostMapping("/product-details/create")
     public String createProduct(@Valid @ModelAttribute("sanPhamChiTiet") SanPhamChiTiet sanPhamChiTiet,
                                 BindingResult result,
+                                MultipartFile file,
                                 @RequestParam(value = "id", required = false) String id,
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
-                                Model model) {
+                                Model model) throws IOException {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
@@ -155,15 +157,11 @@ public class SanPhamChiTietController {
             return "/product-details-table.jsp";
         }
 
-        sanPhamChiTiet.setKichThuoc(kichThuocService.findById(sanPhamChiTiet.getKichThuoc().getId()));
-        sanPhamChiTiet.setMauSac(mauSacService.findById(sanPhamChiTiet.getMauSac().getId()));
-        sanPhamChiTiet.setSanPham(sanPhamService.findById(sanPhamChiTiet.getSanPham().getId()));
-
         if (id != null && !id.isBlank()) {
             sanPhamChiTiet.setId(id);
-            sanPhamChiTietService.update(sanPhamChiTiet);
+            sanPhamChiTietService.update(sanPhamChiTiet, file);
         } else {
-            sanPhamChiTietService.create(sanPhamChiTiet);
+            sanPhamChiTietService.create(sanPhamChiTiet, file);
         }
 
         return "redirect:/product-details/table";
