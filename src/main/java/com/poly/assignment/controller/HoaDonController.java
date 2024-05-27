@@ -113,13 +113,7 @@ public class HoaDonController {
         }
 
         if (Auth.getLoggedInNhanVien().getVaiTro() == false) {
-            model.addAttribute("error", "You don't have permission!");
-            Page<HoaDon> hoaDonPage = PageUtil.createPage(hoaDonService.findAll(), page, pageSize);
-            model.addAttribute("orders", hoaDonPage.getContent());
-            model.addAttribute("currentPage", page);
-            model.addAttribute("pageSize", pageSize);
-            model.addAttribute("totalPages", hoaDonPage.getTotalPages());
-            return "/orders-table.jsp";
+            return "/403.jsp";
         }
 
         HoaDon hoaDon = hoaDonService.findById(id);
@@ -138,7 +132,7 @@ public class HoaDonController {
         }
 
         if (Auth.getLoggedInNhanVien().getVaiTro() == false) {
-            return "/orders-update.jsp";
+            return "/403.jsp";
         }
 
         if (result.hasErrors()) {
@@ -161,13 +155,7 @@ public class HoaDonController {
         }
 
         if (Auth.getLoggedInNhanVien().getVaiTro() == false) {
-            model.addAttribute("error", "You don't have permission!");
-            Page<HoaDon> hoaDonPage = PageUtil.createPage(hoaDonService.findAll(), page, pageSize);
-            model.addAttribute("orders", hoaDonPage.getContent());
-            model.addAttribute("currentPage", page);
-            model.addAttribute("pageSize", pageSize);
-            model.addAttribute("totalPages", hoaDonPage.getTotalPages());
-            return "/orders-table.jsp";
+            return "/403.jsp";
         }
 
         hoaDonService.cancel(id);

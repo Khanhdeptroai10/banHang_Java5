@@ -308,11 +308,6 @@
                             </tbody>
                         </table>
                         <!--end::Table-->
-                        <!--begin::Input group=-->
-                        <div class="fv-row mb-8 fv-plugins-icon-container">
-                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">${error}</div>
-                        </div>
-                        <!--end::Input group=-->
                         <c:if test="${totalPages > 0}">
                             <!--begin::Pagination-->
                             <ul class="pagination">
