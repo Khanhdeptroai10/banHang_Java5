@@ -22,7 +22,8 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Products</h1>
+                    <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
+                        Products</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -56,14 +57,16 @@
                     <!--begin::Filter menu-->
                     <div class="m-0">
                         <!--begin::Menu toggle-->
-                        <a href="#" class="btn btn-sm btn-flex btn-secondary fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                        <a href="#" class="btn btn-sm btn-flex btn-secondary fw-bold" data-kt-menu-trigger="click"
+                           data-kt-menu-placement="bottom-end">
                             <i class="ki-duotone ki-filter fs-6 text-muted me-1">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>Filter</a>
                         <!--end::Menu toggle-->
                         <!--begin::Menu 1-->
-                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_65a1214c6c869">
+                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
+                             id="kt_menu_65a1214c6c869">
                             <!--begin::Header-->
                             <div class="px-7 py-5">
                                 <div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
@@ -81,7 +84,10 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <div>
-                                        <select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_65a1214c6c869" data-allow-clear="true">
+                                        <select class="form-select form-select-solid" multiple="multiple"
+                                                data-kt-select2="true" data-close-on-select="false"
+                                                data-placeholder="Select option"
+                                                data-dropdown-parent="#kt_menu_65a1214c6c869" data-allow-clear="true">
                                             <option></option>
                                             <option value="1">Approved</option>
                                             <option value="2">Pending</option>
@@ -101,13 +107,14 @@
                                     <div class="d-flex">
                                         <!--begin::Options-->
                                         <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                            <input class="form-check-input" type="checkbox" value="1" />
+                                            <input class="form-check-input" type="checkbox" value="1"/>
                                             <span class="form-check-label">Author</span>
                                         </label>
                                         <!--end::Options-->
                                         <!--begin::Options-->
                                         <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2" checked="checked" />
+                                            <input class="form-check-input" type="checkbox" value="2"
+                                                   checked="checked"/>
                                             <span class="form-check-label">Customer</span>
                                         </label>
                                         <!--end::Options-->
@@ -122,7 +129,8 @@
                                     <!--end::Label-->
                                     <!--begin::Switch-->
                                     <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
+                                        <input class="form-check-input" type="checkbox" value="" name="notifications"
+                                               checked="checked"/>
                                         <label class="form-check-label">Enabled</label>
                                     </div>
                                     <!--end::Switch-->
@@ -130,8 +138,12 @@
                                 <!--end::Input group-->
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                    <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
+                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
+                                            data-kt-menu-dismiss="true">Reset
+                                    </button>
+                                    <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">
+                                        Apply
+                                    </button>
                                 </div>
                                 <!--end::Actions-->
                             </div>
@@ -143,7 +155,8 @@
                     <!--begin::Secondary button-->
                     <!--end::Secondary button-->
                     <!--begin::Primary button-->
-                    <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
+                    <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
+                       data-bs-target="#kt_modal_create_app">Create</a>
                     <!--end::Primary button-->
                 </div>
                 <!--end::Actions-->
@@ -159,24 +172,32 @@
                 <div class="card card-flush">
                     <!--begin::Card header-->
                     <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                        <!--begin::Card title-->
-                        <div class="card-title">
-                            <!--begin::Search-->
-                            <div class="d-flex align-items-center position-relative my-1">
-                                <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                                <input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Product" />
+                        <!--begin::Form search-->
+                        <form action="/order-details/table/search" method="get">
+                            <!--begin::Card title-->
+                            <div class="card-title">
+                                <!--begin::Search-->
+                                <div class="d-flex align-items-center position-relative my-1">
+                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <input type="text" name="key" data-kt-ecommerce-product-filter="search"
+                                           class="form-control form-control-solid w-250px ps-12"
+                                           placeholder="Search order detail"/>
+                                </div>
+                                <!--end::Search-->
                             </div>
-                            <!--end::Search-->
-                        </div>
-                        <!--end::Card title-->
+                            <!--end::Card title-->
+                        </form>
+                        <!--end::Form search-->
                         <!--begin::Card toolbar-->
                         <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                             <div class="w-100 mw-150px">
                                 <!--begin::Select2-->
-                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Status" data-kt-ecommerce-product-filter="status">
+                                <select class="form-select form-select-solid" data-control="select2"
+                                        data-hide-search="true" data-placeholder="Status"
+                                        data-kt-ecommerce-product-filter="status">
                                     <option></option>
                                     <option value="all">All</option>
                                     <option value="published">Published</option>
@@ -200,7 +221,9 @@
                             <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                 <th class="w-10px pe-2">
                                     <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input" value="1" />
+                                        <input class="form-check-input" type="checkbox" data-kt-check="true"
+                                               data-kt-check-target="#kt_ecommerce_products_table .form-check-input"
+                                               value="1"/>
                                     </div>
                                 </th>
                                 <th class="min-w-100px">Order detail</th>
@@ -215,22 +238,27 @@
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
                             <c:forEach items="${orderDetails}" var="orderDetail" varStatus="i">
-                                <tr>
+                                <tr ${orderDetails.size() == 0 ? "hidden" : ""}>
                                     <td>
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1" />
+                                            <input class="form-check-input" type="checkbox" value="1"/>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <!--begin::Thumbnail-->
-                                            <a href="apps/ecommerce/catalog/edit-product.html" class="symbol symbol-50px">
-                                                <span class="symbol-label" style="background-image:url(/public/assets/media//stock/ecommerce/1.png);"></span>
+                                            <a href="apps/ecommerce/catalog/edit-product.html"
+                                               class="symbol symbol-50px">
+                                                <span class="symbol-label"
+                                                      style="background-image:url(/public/assets/media//stock/ecommerce/1.png);"></span>
                                             </a>
                                             <!--end::Thumbnail-->
                                             <div class="ms-5">
                                                 <!--begin::Title-->
-                                                <a href="apps/ecommerce/catalog/edit-product.html" class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-product-filter="product_name">Order detail #${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</a>
+                                                <a href="apps/ecommerce/catalog/edit-product.html"
+                                                   class="text-gray-800 text-hover-primary fs-5 fw-bold"
+                                                   data-kt-ecommerce-product-filter="product_name">Order detail
+                                                    #${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</a>
                                                 <!--end::Title-->
                                             </div>
                                         </div>
@@ -238,8 +266,11 @@
                                     <td class="text-end pe-0">
                                         <span class="fw-bold">${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</span>
                                     </td>
-                                    <td class="text-end pe-0">#${orderDetail.hoaDon.id.length() > 7 ? orderDetail.hoaDon.id.substring(0, 7) : orderDetail.hoaDon.id}</td>
-                                    <td class="text-end pe-0">${orderDetail.sanPhamChiTiet.maSPCT} - ${orderDetail.sanPhamChiTiet.sanPham.ten} - ${orderDetail.sanPhamChiTiet.ten}</td>
+                                    <td class="text-end pe-0">
+                                        #${orderDetail.hoaDon.id.length() > 7 ? orderDetail.hoaDon.id.substring(0, 7) : orderDetail.hoaDon.id}</td>
+                                    <td class="text-end pe-0">${orderDetail.sanPhamChiTiet.maSPCT}
+                                        - ${orderDetail.sanPhamChiTiet.sanPham.ten}
+                                        - ${orderDetail.sanPhamChiTiet.ten}</td>
                                     <td class="text-end pe-0">${orderDetail.soLuong}</td>
                                     <td class="text-end pe-0">${orderDetail.donGia}</td>
                                     <td class="text-end pe-0" data-order="Scheduled">
@@ -248,10 +279,13 @@
                                         <!--end::Badges-->
                                     </td>
                                     <td class="text-end">
-                                        <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                        <a href="#"
+                                           class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
+                                           data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                             <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
                                         <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
+                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="#" class="menu-link px-3">Edit</a>
@@ -259,7 +293,8 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row">Cancel</a>
+                                                <a href="#" class="menu-link px-3"
+                                                   data-kt-ecommerce-product-filter="delete_row">Cancel</a>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
@@ -267,27 +302,32 @@
                                     </td>
                                 </tr>
                             </c:forEach>
+                            <tr ${orderDetails.size() > 0 ? "hidden" : ""}>
+                                <td colspan="9" class="text-center">No order detail</td>
+                            </tr>
                             </tbody>
                         </table>
                         <!--end::Table-->
-                        <!--begin::Pagination-->
-                        <ul class="pagination">
-                            <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                <a href="/order-details/table?page=${currentPage - 1}&pageSize=${pageSize}"
-                                   class="page-link"><i class="previous"></i></a>
-                            </li>
-                            <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
-                                <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                    <a href="/order-details/table?page=${pageNumber}&pageSize=${pageSize}"
-                                       class="page-link">${pageNumber + 1}</a>
+                        <c:if test="${totalPages > 0}">
+                            <!--begin::Pagination-->
+                            <ul class="pagination">
+                                <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
+                                    <a href="/order-details/table?page=${currentPage - 1}&pageSize=${pageSize}"
+                                       class="page-link"><i class="previous"></i></a>
                                 </li>
-                            </c:forEach>
-                            <li class="page-item next">
-                                <a href="/order-details/table?page=${currentPage + 1}&pageSize=${pageSize}"
-                                   class="page-link"><i class="next"></i></a>
-                            </li>
-                        </ul>
-                        <!--end::Pagination-->
+                                <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                                    <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
+                                        <a href="/order-details/table?page=${pageNumber}&pageSize=${pageSize}"
+                                           class="page-link">${pageNumber + 1}</a>
+                                    </li>
+                                </c:forEach>
+                                <li class="page-item next">
+                                    <a href="/order-details/table?page=${currentPage + 1}&pageSize=${pageSize}"
+                                       class="page-link"><i class="next"></i></a>
+                                </li>
+                            </ul>
+                            <!--end::Pagination-->
+                        </c:if>
                     </div>
                     <!--end::Card body-->
                 </div>

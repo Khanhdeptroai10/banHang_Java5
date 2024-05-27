@@ -44,7 +44,7 @@ public class NhanVienService {
     public List<NhanVien> findByKey(String key) {
         List<NhanVien> result = new ArrayList<>();
         for (NhanVien nhanVien: listNhanVien) {
-            if (nhanVien.getMaNV().contains(key) || nhanVien.getTen().contains(key) || nhanVien.getTenDangNhap().contains(key)) {
+            if (nhanVien.getMaNV().toLowerCase().contains(key.toLowerCase()) || nhanVien.getTen().toLowerCase().contains(key.toLowerCase()) || nhanVien.getTenDangNhap().toLowerCase().contains(key.toLowerCase())) {
                 result.add(nhanVien);
             }
         }

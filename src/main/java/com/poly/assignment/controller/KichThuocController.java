@@ -1,6 +1,7 @@
 package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
+import com.poly.assignment.entity.KhachHang;
 import com.poly.assignment.entity.KichThuoc;
 import com.poly.assignment.service.KichThuocService;
 import com.poly.assignment.util.PageUtil;
@@ -42,8 +43,9 @@ public class KichThuocController {
         return kichThuocService.findById(id);
     }
 
-    @GetMapping("/size/search")
+    @GetMapping("/products/sizes/search")
     public String findByKey(@RequestParam("key") String key,
+                            @ModelAttribute("kichThuoc") KichThuoc kichThuoc,
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                             Model model) {
@@ -52,7 +54,10 @@ public class KichThuocController {
         }
         Page<KichThuoc> kichThuocPage = PageUtil.createPage(kichThuocService.findByKey(key), page, pageSize);
         model.addAttribute("sizes", kichThuocPage.getContent());
-        return "redirect:/products/sizes";
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", kichThuocPage.getTotalPages());
+        return "/sizes-table.jsp";
     }
 
     @ModelAttribute("status")

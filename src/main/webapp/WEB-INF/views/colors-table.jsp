@@ -183,11 +183,11 @@
                             <!--end::Card header-->
                             <!--begin::Form-->
                             <form:form id="kt_account_profile_details_form"
-                                  class="form fv-plugins-bootstrap5 fv-plugins-framework"
-                                  action="/color/create" method="post" modelAttribute="mauSac">
+                                       class="form fv-plugins-bootstrap5 fv-plugins-framework"
+                                       action="/color/create" method="post" modelAttribute="mauSac">
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <input type="hidden" name="id" value="${mauSac.id}" />
+                                    <input type="hidden" name="id" value="${mauSac.id}"/>
                                     <!--begin::Input group-->
                                     <div class="mb-10 fv-row">
                                         <!--begin::Label-->
@@ -195,13 +195,13 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <form:input path="maMS" class="form-control mb-2"
-                                               placeholder="Color code" />
+                                                    placeholder="Color code"/>
                                         <!--end::Input-->
                                         <!--begin::Description-->
                                         <div class="text-muted fs-7">Enter the color code.</div>
                                         <!--end::Description-->
                                         <!--begin::Error-->
-                                        <form:errors path="maMS" class="text-danger fs-7" />
+                                        <form:errors path="maMS" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                     </div>
                                     <!--end::Input group-->
@@ -212,13 +212,13 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <form:input path="ten" class="form-control mb-2"
-                                               placeholder="Name" />
+                                                    placeholder="Name"/>
                                         <!--end::Input-->
                                         <!--begin::Description-->
                                         <div class="text-muted fs-7">Enter the color's name.</div>
                                         <!--end::Description-->
                                         <!--begin::Error-->
-                                        <form:errors path="ten" class="text-danger fs-7" />
+                                        <form:errors path="ten" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                     </div>
                                     <!--end::Input group-->
@@ -229,7 +229,8 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <div class="form-check form-check-custom form-check-solid mb-2">
-                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" " class="form-check-input" />
+                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "
+                                                               class="form-check-input"/>
                                         </div>
                                         <!--end::Input-->
                                         <!--begin::Description-->
@@ -238,7 +239,7 @@
                                         </div>
                                         <!--end::Description-->
                                         <!--begin::Error-->
-                                        <form:errors path="trangThai" class="text-danger fs-7" />
+                                        <form:errors path="trangThai" class="text-danger fs-7"/>
                                         <!--end::Error-->
                                         <!--begin::Actions-->
                                         <div class="card-footer d-flex justify-content-end py-6 px-9">
@@ -266,21 +267,25 @@
                         <div class="card card-flush">
                             <!--begin::Card header-->
                             <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                                <!--begin::Card title-->
-                                <div class="card-title">
-                                    <!--begin::Search-->
-                                    <div class="d-flex align-items-center position-relative my-1">
-                                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <input type="text" data-kt-ecommerce-color-filter="search"
-                                               class="form-control form-control-solid w-250px ps-12"
-                                               placeholder="Search Color"/>
+                                <!--begin::Form search-->
+                                <form action="/products/colors/search" method="get">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <!--begin::Search-->
+                                        <div class="d-flex align-items-center position-relative my-1">
+                                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <input type="text" name="key" data-kt-ecommerce-product-filter="search"
+                                                   class="form-control form-control-solid w-250px ps-12"
+                                                   placeholder="Search color"/>
+                                        </div>
+                                        <!--end::Search-->
                                     </div>
-                                    <!--end::Search-->
-                                </div>
-                                <!--end::Card title-->
+                                    <!--end::Card title-->
+                                </form>
+                                <!--end::Form search-->
                                 <!--begin::Card toolbar-->
                                 <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                                     <div class="w-100 mw-150px">
@@ -326,7 +331,7 @@
                                     </thead>
                                     <tbody class="fw-semibold text-gray-600">
                                     <c:forEach items="${colors}" var="color" varStatus="i">
-                                        <tr>
+                                        <tr ${colors.size() == 0 ? "hidden" : ""}>
                                             <td>
                                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="checkbox" value="1"/>
@@ -384,24 +389,32 @@
                                             </td>
                                         </tr>
                                     </c:forEach>
+                                    <tr ${colors.size() > 0 ? "hidden" : ""}>
+                                        <td colspan="5" class="text-center">No color</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                                 <!--end::Table-->
-                                <!--begin::Pagination-->
-                                <ul class="pagination">
-                                    <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                        <a href="/products/colors?page=${currentPage - 1}&pageSize=${pageSize}" class="page-link"><i class="previous"></i></a>
-                                    </li>
-                                    <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
-                                        <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                            <a href="/products/colors?page=${pageNumber}&pageSize=${pageSize}" class="page-link">${pageNumber + 1}</a>
+                                <c:if test="${totalPages > 0}">
+                                    <!--begin::Pagination-->
+                                    <ul class="pagination">
+                                        <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
+                                            <a href="/products/colors?page=${currentPage - 1}&pageSize=${pageSize}"
+                                               class="page-link"><i class="previous"></i></a>
                                         </li>
-                                    </c:forEach>
-                                    <li class="page-item next">
-                                        <a href="/products/colors?page=${currentPage + 1}&pageSize=${pageSize}" class="page-link"><i class="next"></i></a>
-                                    </li>
-                                </ul>
-                                <!--end::Pagination-->
+                                        <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                                            <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
+                                                <a href="/products/colors?page=${pageNumber}&pageSize=${pageSize}"
+                                                   class="page-link">${pageNumber + 1}</a>
+                                            </li>
+                                        </c:forEach>
+                                        <li class="page-item next">
+                                            <a href="/products/colors?page=${currentPage + 1}&pageSize=${pageSize}"
+                                               class="page-link"><i class="next"></i></a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Pagination-->
+                                </c:if>
                             </div>
                             <!--end::Card body-->
                         </div>

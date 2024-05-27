@@ -38,6 +38,22 @@ public class HoaDonChiTietController {
         return hoaDonChiTietService.findById(id);
     }
 
+    @GetMapping("/order-details/table/search")
+    public String findByKey(@RequestParam("key") String key,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                            Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<HoaDonChiTiet> hoaDonChiTietPage = PageUtil.createPage(hoaDonChiTietService.findByKey(key), page, pageSize);
+        model.addAttribute("orderDetails", hoaDonChiTietPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", hoaDonChiTietPage.getTotalPages());
+        return "/order-details-table.jsp";
+    }
+
     @GetMapping("/order-details-by-order")
     public String getAllHoaDonChiTietByHoaDonId(@RequestParam("id") String id,
                                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,

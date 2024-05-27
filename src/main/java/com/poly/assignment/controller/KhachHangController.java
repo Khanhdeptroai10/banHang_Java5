@@ -48,6 +48,7 @@ public class KhachHangController {
 
     @GetMapping("/customer/search")
     public String findByKey(@RequestParam("key") String key,
+                            @ModelAttribute("khachHang") KhachHang khachHang,
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                             Model model) {
@@ -56,7 +57,10 @@ public class KhachHangController {
         }
         Page<KhachHang> khachHangPage = PageUtil.createPage(khachHangService.findByKey(key), page, pageSize);
         model.addAttribute("customers", khachHangPage.getContent());
-        return "redirect:/customers/table";
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", khachHangPage.getTotalPages());
+        return "/customers-table.jsp";
     }
 
     @ModelAttribute("status")

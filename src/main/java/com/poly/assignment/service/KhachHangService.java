@@ -44,7 +44,7 @@ public class KhachHangService {
     public List<KhachHang> findByKey(String key) {
         List<KhachHang> result = new ArrayList<>();
         for (KhachHang khachHang: listKhachHang) {
-            if (khachHang.getMaKH().contains(key) || khachHang.getTen().contains(key) || khachHang.getSdt().contains(key)) {
+            if (khachHang.getMaKH().toLowerCase().contains(key.toLowerCase()) || khachHang.getTen().toLowerCase().contains(key.toLowerCase()) || khachHang.getSdt().toLowerCase().contains(key.toLowerCase())) {
                 result.add(khachHang);
             }
         }

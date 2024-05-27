@@ -39,7 +39,7 @@ public class MauSacService {
     public List<MauSac> findByKey(String key) {
         List<MauSac> result = new ArrayList<>();
         for (MauSac mauSac: listMauSac) {
-            if (mauSac.getMaMS().contains(key) || mauSac.getTen().contains(key)) {
+            if (mauSac.getMaMS().toLowerCase().contains(key.toLowerCase()) || mauSac.getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(mauSac);
             }
         }

@@ -173,7 +173,7 @@
                     <!--begin::Card header-->
                     <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                         <!--begin::Form search-->
-                        <form action="/products/table/search" method="get">
+                        <form action="/orders/table/search" method="get">
                             <!--begin::Card title-->
                             <div class="card-title">
                                 <!--begin::Search-->
@@ -184,7 +184,7 @@
                                     </i>
                                     <input type="text" name="key" data-kt-ecommerce-product-filter="search"
                                            class="form-control form-control-solid w-250px ps-12"
-                                           placeholder="Search Product"/>
+                                           placeholder="Search order"/>
                                 </div>
                                 <!--end::Search-->
                             </div>
@@ -237,7 +237,7 @@
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
                             <c:forEach items="${orders}" var="order" varStatus="i">
-                                <tr>
+                                <tr ${orders.size() == 0 ? "hidden" : ""}>
                                     <td>
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
                                             <input class="form-check-input" type="checkbox" value="1"/>
@@ -302,6 +302,9 @@
                                     </td>
                                 </tr>
                             </c:forEach>
+                            <tr ${orders.size() > 0 ? "hidden" : ""}>
+                                <td colspan="8" class="text-center">No order</td>
+                            </tr>
                             </tbody>
                         </table>
                         <!--end::Table-->
@@ -310,24 +313,26 @@
                             <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">${error}</div>
                         </div>
                         <!--end::Input group=-->
-                        <!--begin::Pagination-->
-                        <ul class="pagination">
-                            <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                <a href="/orders/table?page=${currentPage - 1}&pageSize=${pageSize}"
-                                   class="page-link"><i class="previous"></i></a>
-                            </li>
-                            <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
-                                <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                    <a href="/orders/table?page=${pageNumber}&pageSize=${pageSize}"
-                                       class="page-link">${pageNumber + 1}</a>
+                        <c:if test="${totalPages > 0}">
+                            <!--begin::Pagination-->
+                            <ul class="pagination">
+                                <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
+                                    <a href="/orders/table?page=${currentPage - 1}&pageSize=${pageSize}"
+                                       class="page-link"><i class="previous"></i></a>
                                 </li>
-                            </c:forEach>
-                            <li class="page-item next">
-                                <a href="/orders/table?page=${currentPage + 1}&pageSize=${pageSize}"
-                                   class="page-link"><i class="next"></i></a>
-                            </li>
-                        </ul>
-                        <!--end::Pagination-->
+                                <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                                    <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
+                                        <a href="/orders/table?page=${pageNumber}&pageSize=${pageSize}"
+                                           class="page-link">${pageNumber + 1}</a>
+                                    </li>
+                                </c:forEach>
+                                <li class="page-item next">
+                                    <a href="/orders/table?page=${currentPage + 1}&pageSize=${pageSize}"
+                                       class="page-link"><i class="next"></i></a>
+                                </li>
+                            </ul>
+                            <!--end::Pagination-->
+                        </c:if>
                     </div>
                     <!--end::Card body-->
                 </div>

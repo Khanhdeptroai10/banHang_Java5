@@ -318,21 +318,25 @@
                         <div class="card card-flush">
                             <!--begin::Card header-->
                             <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                                <!--begin::Card title-->
-                                <div class="card-title">
-                                    <!--begin::Search-->
-                                    <div class="d-flex align-items-center position-relative my-1">
-                                        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                        <input type="text" data-kt-ecommerce-employee-filter="search"
-                                               class="form-control form-control-solid w-250px ps-12"
-                                               placeholder="Search Employee"/>
+                                <!--begin::Form search-->
+                                <form action="/employees/search" method="get">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <!--begin::Search-->
+                                        <div class="d-flex align-items-center position-relative my-1">
+                                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <input type="text" name="key" data-kt-ecommerce-product-filter="search"
+                                                   class="form-control form-control-solid w-250px ps-12"
+                                                   placeholder="Search employee"/>
+                                        </div>
+                                        <!--end::Search-->
                                     </div>
-                                    <!--end::Search-->
-                                </div>
-                                <!--end::Card title-->
+                                    <!--end::Card title-->
+                                </form>
+                                <!--end::Form search-->
                                 <!--begin::Card toolbar-->
                                 <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                                     <div class="w-100 mw-150px">
@@ -380,7 +384,7 @@
                                     </thead>
                                     <tbody class="fw-semibold text-gray-600">
                                     <c:forEach items="${employees}" var="employee" varStatus="i">
-                                        <tr>
+                                        <tr ${employees.size() == 0 ? "hidden" : ""}>
                                             <td>
                                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="checkbox" value="1"/>
@@ -446,27 +450,32 @@
                                             </td>
                                         </tr>
                                     </c:forEach>
+                                    <tr ${employees.size() > 0 ? "hidden" : ""}>
+                                        <td colspan="7" class="text-center">No employee</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                                 <!--end::Table-->
-                                <!--begin::Pagination-->
-                                <ul class="pagination">
-                                    <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                        <a href="/employees/table?page=${currentPage - 1}&pageSize=${pageSize}"
-                                           class="page-link"><i class="previous"></i></a>
-                                    </li>
-                                    <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
-                                        <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                            <a href="/employees/table?page=${pageNumber}&pageSize=${pageSize}"
-                                               class="page-link">${pageNumber + 1}</a>
+                                <c:if test="${totalPages > 0}">
+                                    <!--begin::Pagination-->
+                                    <ul class="pagination">
+                                        <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
+                                            <a href="/employees/table?page=${currentPage - 1}&pageSize=${pageSize}"
+                                               class="page-link"><i class="previous"></i></a>
                                         </li>
-                                    </c:forEach>
-                                    <li class="page-item next">
-                                        <a href="/employees/table?page=${currentPage + 1}&pageSize=${pageSize}"
-                                           class="page-link"><i class="next"></i></a>
-                                    </li>
-                                </ul>
-                                <!--end::Pagination-->
+                                        <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                                            <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
+                                                <a href="/employees/table?page=${pageNumber}&pageSize=${pageSize}"
+                                                   class="page-link">${pageNumber + 1}</a>
+                                            </li>
+                                        </c:forEach>
+                                        <li class="page-item next">
+                                            <a href="/employees/table?page=${currentPage + 1}&pageSize=${pageSize}"
+                                               class="page-link"><i class="next"></i></a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Pagination-->
+                                </c:if>
                             </div>
                             <!--end::Card body-->
                         </div>

@@ -54,9 +54,20 @@ public class HoaDonController {
         return "/orders-table.jsp";
     }
 
-    @GetMapping("/orders/search")
-    public List<HoaDon> findByKey(@RequestParam("key") String key) {
-        return hoaDonService.findByKey(key);
+    @GetMapping("/orders/table/search")
+    public String findByKey(@RequestParam("key") String key,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                            Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<HoaDon> hoaDonPage = PageUtil.createPage(hoaDonService.findByKey(key), page, pageSize);
+        model.addAttribute("orders", hoaDonPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", hoaDonPage.getTotalPages());
+        return "/orders-table.jsp";
     }
 
     @ModelAttribute("khachHangList")

@@ -1,6 +1,7 @@
 package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
+import com.poly.assignment.entity.KichThuoc;
 import com.poly.assignment.entity.MauSac;
 import com.poly.assignment.service.MauSacService;
 import com.poly.assignment.util.PageUtil;
@@ -53,6 +54,23 @@ public class MauSacController {
         Page<MauSac> mauSacPage = PageUtil.createPage(mauSacService.findByKey(key), page, pageSize);
         model.addAttribute("colors", mauSacPage.getContent());
         return "redirect:/products/colors";
+    }
+
+    @GetMapping("/products/colors/search")
+    public String findByKey(@RequestParam("key") String key,
+                            @ModelAttribute("mauSac") MauSac mauSac,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                            Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<MauSac> mauSacPage = PageUtil.createPage(mauSacService.findByKey(key), page, pageSize);
+        model.addAttribute("colors", mauSacPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", mauSacPage.getTotalPages());
+        return "/colors-table.jsp";
     }
 
     @ModelAttribute("status")

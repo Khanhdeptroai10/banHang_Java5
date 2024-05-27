@@ -1,6 +1,7 @@
 package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
+import com.poly.assignment.entity.KichThuoc;
 import com.poly.assignment.entity.NhanVien;
 import com.poly.assignment.service.NhanVienService;
 import com.poly.assignment.util.PageUtil;
@@ -43,9 +44,21 @@ public class NhanVienController {
         return nhanVienService.findById(id);
     }
 
-    @GetMapping("/nhan-vien/search")
-    public List<NhanVien> findByKey(@RequestParam("key") String key) {
-        return nhanVienService.findByKey(key);
+    @GetMapping("/employees/search")
+    public String findByKey(@RequestParam("key") String key,
+                            @ModelAttribute("nhanVien") NhanVien nhanVien,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                            Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
+        Page<NhanVien> nhanVienPage = PageUtil.createPage(nhanVienService.findByKey(key), page, pageSize);
+        model.addAttribute("employees", nhanVienPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("totalPages", nhanVienPage.getTotalPages());
+        return "/employees-table.jsp";
     }
 
     @ModelAttribute("role")

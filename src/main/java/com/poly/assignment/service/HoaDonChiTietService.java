@@ -37,6 +37,17 @@ public class HoaDonChiTietService {
         return null;
     }
 
+    public List<HoaDonChiTiet> findByKey(String key) {
+        List<HoaDonChiTiet> result = new ArrayList<>();
+        for (HoaDonChiTiet hoaDonChiTiet: listHoaDonChiTiet) {
+            if (hoaDonChiTiet.getHoaDon().getId().toLowerCase().contains(key.toLowerCase()) || hoaDonChiTiet.getId().toLowerCase().contains(key.toLowerCase())) {
+                result.add(hoaDonChiTiet);
+            }
+        }
+
+        return result;
+    }
+
     public List<HoaDonChiTiet> findAllHoaDonChiTietByHoaDon(String id) {
         List<HoaDonChiTiet> result = new ArrayList<>();
         for (HoaDonChiTiet hoaDonChiTiet: listHoaDonChiTiet) {

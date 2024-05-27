@@ -39,7 +39,7 @@ public class KichThuocService {
     public List<KichThuoc> findByKey(String key) {
         List<KichThuoc> result = new ArrayList<>();
         for (KichThuoc kichThuoc: listKichThuoc) {
-            if (kichThuoc.getMaKT().contains(key) || kichThuoc.getTen().contains(key)) {
+            if (kichThuoc.getMaKT().toLowerCase().contains(key.toLowerCase()) || kichThuoc.getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(kichThuoc);
             }
         }

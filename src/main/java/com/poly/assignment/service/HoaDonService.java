@@ -51,10 +51,10 @@ public class HoaDonService {
     public List<HoaDon> findByKey(String key) {
         List<HoaDon> result = new ArrayList<>();
         for (HoaDon hoaDon: listHoaDon) {
-            if (hoaDon.getNhanVien().getMaNV().contains(key) ||
-                    hoaDon.getNhanVien().getTen().contains(key) ||
-                    hoaDon.getKhachHang().getMaKH().contains(key) ||
-                    hoaDon.getKhachHang().getTen().contains(key)) {
+            if (hoaDon.getNhanVien().getMaNV().toLowerCase().contains(key.toLowerCase()) ||
+                    hoaDon.getNhanVien().getTen().toLowerCase().contains(key.toLowerCase()) ||
+                    hoaDon.getKhachHang().getMaKH().toLowerCase().contains(key.toLowerCase()) ||
+                    hoaDon.getKhachHang().getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(hoaDon);
             }
         }
