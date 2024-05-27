@@ -334,23 +334,23 @@
                                     </div>
                                     <!--end::Input group-->
                                     <!--begin::Input group-->
-                                    <div class="fv-row">
-                                        <!--begin::Label-->
-                                        <label class="form-label">Status</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <div class="form-check form-check-custom form-check-solid mb-2">
-                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "
-                                                               class="form-check-input"/>
-                                        </div>
-                                        <!--end::Input-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set status in order</div>
-                                        <!--end::Description-->
-                                        <!--begin::Error-->
-                                        <form:errors path="trangThai" class="text-danger fs-7"/>
-                                        <!--end::Error-->
-                                    </div>
+<%--                                    <div class="fv-row">--%>
+<%--                                        <!--begin::Label-->--%>
+<%--                                        <label class="form-label">Status</label>--%>
+<%--                                        <!--end::Label-->--%>
+<%--                                        <!--begin::Input-->--%>
+<%--                                        <div class="form-check form-check-custom form-check-solid mb-2">--%>
+<%--                                            <form:radiobuttons path="trangThai" items="${status}" delimiter=" "--%>
+<%--                                                               class="form-check-input"/>--%>
+<%--                                        </div>--%>
+<%--                                        <!--end::Input-->--%>
+<%--                                        <!--begin::Description-->--%>
+<%--                                        <div class="text-muted fs-7">Set status in order</div>--%>
+<%--                                        <!--end::Description-->--%>
+<%--                                        <!--begin::Error-->--%>
+<%--                                        <form:errors path="trangThai" class="text-danger fs-7"/>--%>
+<%--                                        <!--end::Error-->--%>
+<%--                                    </div>--%>
                                     <!--end::Input group-->
                                 </div>
                             </div>

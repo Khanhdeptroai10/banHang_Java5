@@ -88,6 +88,8 @@ public class HoaDonService {
                 hoaDon.setNhanVien(Auth.getLoggedInNhanVien());
                 hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
                 hoaDon.setNgayMuaHang(LocalDateTime.now());
+                hoaDon.setTrangThai(true);
+                hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(hoaDon.getId()).forEach(hoaDonChiTiet -> hoaDonChiTiet.setTrangThai(true));
                 listHoaDon.set(i, hoaDon);
             }
         }

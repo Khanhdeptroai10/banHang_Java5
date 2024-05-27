@@ -534,7 +534,7 @@
                                         </tr>
                                     </c:forEach>
                                     <tr ${productDetails.size() > 0 ? "hidden" : ""}>
-                                        <td colspan="7" class="text-center">No product detail</td>
+                                        <td colspan="9" class="text-center">No product detail</td>
                                     </tr>
                                     </tbody>
                                 </table>
