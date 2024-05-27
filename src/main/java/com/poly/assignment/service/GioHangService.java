@@ -33,44 +33,32 @@ public class GioHangService {
         if (gioHangResult != null) {
             gioHangResult.setQuantity(gioHangResult.getQuantity() + 1);
         } else gioHangList.add(gioHang);
-        calculator();
     }
 
     public void decreaseQuantityInCart(String cid) {
         GioHang gioHang = findById(gioHangList, cid);
-        if (gioHang != null) {
+        if (gioHang != null)
             gioHang.setQuantity(gioHang.getQuantity() - 1);
-            calculator();
-        }
     }
 
     public void increaseQuantityInCart(String cid) {
         GioHang gioHang = findById(gioHangList, cid);
-        if (gioHang != null) {
+        if (gioHang != null)
             gioHang.setQuantity(gioHang.getQuantity() + 1);
-            calculator();
-        }
     }
 
     public void deleteItemInCart(String pdid) {
         GioHang gioHangResult = findByProductDetailId(pdid);
         if (gioHangResult != null)
             gioHangList.remove(gioHangResult);
-        calculator();
     }
 
     public void deleteAll() {
         gioHangList.removeAll(gioHangList);
     }
 
-    private double totalCost = 0.0;
-
-    public double getTotalCost() {
-        return totalCost;
-    }
-
     public double calculator() {
-        totalCost = 0.0;
+        double totalCost = 0.0;
 
         for (GioHang gioHang : gioHangList) {
             int quantity = gioHang.getQuantity();

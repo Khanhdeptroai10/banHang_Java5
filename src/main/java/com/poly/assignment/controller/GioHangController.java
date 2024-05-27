@@ -32,7 +32,7 @@ public class GioHangController {
             return "redirect:/login";
         }
         model.addAttribute("cart", gioHangService.findAll());
-        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        model.addAttribute("totalCost", gioHangService.calculator());
         return "/cart.jsp";
     }
 
@@ -48,7 +48,7 @@ public class GioHangController {
 
             gioHangService.addToCart(new GioHang(UUID.randomUUID().toString(), sanPhamChiTiet, 1));
         }
-        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        model.addAttribute("totalCost", gioHangService.calculator());
         return "redirect:/product-" + pid + "/details";
     }
 
@@ -59,7 +59,7 @@ public class GioHangController {
         }
         if (cid != null && !cid.equals(""))
             gioHangService.decreaseQuantityInCart(cid);
-        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        model.addAttribute("totalCost", gioHangService.calculator());
         return "redirect:/cart";
     }
 
@@ -70,7 +70,7 @@ public class GioHangController {
         }
         if (cid != null && !cid.equals(""))
             gioHangService.increaseQuantityInCart(cid);
-        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        model.addAttribute("totalCost", gioHangService.calculator());
         return "redirect:/cart";
     }
 
@@ -81,7 +81,7 @@ public class GioHangController {
         }
         if (pdid != null && !pdid.equals(""))
             gioHangService.deleteItemInCart(pdid);
-        model.addAttribute("totalCost", gioHangService.getTotalCost());
+        model.addAttribute("totalCost", gioHangService.calculator());
         return "redirect:/cart";
     }
 
