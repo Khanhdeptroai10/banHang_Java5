@@ -1,7 +1,6 @@
 package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
-import com.poly.assignment.entity.KichThuoc;
 import com.poly.assignment.entity.NhanVien;
 import com.poly.assignment.service.NhanVienService;
 import com.poly.assignment.util.PageUtil;
@@ -14,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller

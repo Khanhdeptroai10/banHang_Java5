@@ -4,9 +4,7 @@ import com.poly.assignment.entity.KichThuoc;
 import com.poly.assignment.entity.MauSac;
 import com.poly.assignment.entity.SanPham;
 import com.poly.assignment.entity.SanPhamChiTiet;
-import com.poly.assignment.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

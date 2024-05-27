@@ -1,7 +1,6 @@
 package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
-import com.poly.assignment.entity.KichThuoc;
 import com.poly.assignment.entity.MauSac;
 import com.poly.assignment.service.MauSacService;
 import com.poly.assignment.util.PageUtil;

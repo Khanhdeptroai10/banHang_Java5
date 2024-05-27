@@ -1,16 +1,16 @@
 package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
-import com.poly.assignment.entity.HoaDon;
 import com.poly.assignment.entity.HoaDonChiTiet;
 import com.poly.assignment.service.HoaDonChiTietService;
 import com.poly.assignment.util.PageUtil;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor

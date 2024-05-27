@@ -1,9 +1,7 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.*;
-import com.poly.assignment.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,13 +15,13 @@ public class HoaDonService {
     List<HoaDon> listHoaDon = new ArrayList<>();
 
     @Autowired
-    KhachHangService khachHangService;
+    private KhachHangService khachHangService;
 
     @Autowired
-    GioHangService gioHangService;
+    private GioHangService gioHangService;
 
     @Autowired
-    HoaDonChiTietService hoaDonChiTietService;
+    private HoaDonChiTietService hoaDonChiTietService;
 
     public HoaDonService() {
         listHoaDon.add(new HoaDon("1", new NhanVien("4", "NV04", "Nguyen Thi D", "d12345", "123456", false, true), new KhachHang("1", "KH01", "Luu Thi Hai Yen", "0345674567", true), LocalDateTime.now(), true));

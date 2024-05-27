@@ -1,7 +1,9 @@
 package com.poly.assignment.controller;
 
-import com.poly.assignment.entity.*;
-import com.poly.assignment.service.*;
+import com.poly.assignment.entity.Auth;
+import com.poly.assignment.entity.SanPham;
+import com.poly.assignment.service.SanPhamChiTietService;
+import com.poly.assignment.service.SanPhamService;
 import com.poly.assignment.util.PageUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -9,13 +11,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller

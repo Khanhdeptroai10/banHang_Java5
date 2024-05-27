@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,8 +23,6 @@ public class GioHangController {
     private final SanPhamChiTietService sanPhamChiTietService;
 
     private final KhachHangService khachHangService;
-
-    //let create model attribute below to save order state
 
     @GetMapping("/cart")
     public String cartPage(@ModelAttribute("hoaDon") HoaDon hoaDon, Model model) {

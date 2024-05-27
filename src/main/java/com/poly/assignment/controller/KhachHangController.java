@@ -2,21 +2,17 @@ package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
 import com.poly.assignment.entity.KhachHang;
-import com.poly.assignment.entity.SanPham;
 import com.poly.assignment.service.KhachHangService;
 import com.poly.assignment.util.PageUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller

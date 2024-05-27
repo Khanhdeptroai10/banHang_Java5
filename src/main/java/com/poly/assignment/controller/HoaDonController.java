@@ -1,6 +1,8 @@
 package com.poly.assignment.controller;
 
-import com.poly.assignment.entity.*;
+import com.poly.assignment.entity.Auth;
+import com.poly.assignment.entity.HoaDon;
+import com.poly.assignment.entity.KhachHang;
 import com.poly.assignment.service.GioHangService;
 import com.poly.assignment.service.HoaDonChiTietService;
 import com.poly.assignment.service.HoaDonService;
