@@ -53,7 +53,8 @@
                         <div class="row g-5 gx-xl-10 mb-5 mb-xl-10">
                             <c:forEach items="${productDetails}" var="pd">
                                 <!--begin::Col-->
-                                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
+                                <div ${productDetails.size() == 0 ? "hidden" : ""}
+                                        class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
                                     <!--begin::Product card-->
                                     <div class="card-xl-stretch me-md-6">
                                         <!--begin::Overlay-->
@@ -123,7 +124,8 @@
                                             </div>
                                             <!--end::Price-->
                                             <!--begin::Btn add to cart-->
-                                            <a href="/add-to-cart?pid=${pid}&pdid=${pd.id}" class="btn btn-primary w-100">Thêm vào giỏ hàng</a>
+                                            <a href="/add-to-cart?pid=${pid}&pdid=${pd.id}"
+                                               class="btn btn-primary w-100">Thêm vào giỏ hàng</a>
                                             <!--end::Btn add to cart-->
                                         </div>
                                         <!--end::Body-->
@@ -132,23 +134,29 @@
                                 </div>
                                 <!--end::Col-->
                             </c:forEach>
+                            <div ${productDetails.size() > 0 ? "hidden" : ""}>No product detail</div>
                         </div>
                         <!--end::Row-->
-                        <!--begin::Pagination-->
-                        <ul class="pagination">
-                            <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
-                                <a href="/product-${pid}/details?page=${currentPage - 1}&pageSize=${pageSize}" class="page-link"><i class="previous"></i></a>
-                            </li>
-                            <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
-                                <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
-                                    <a href="/product-${pid}/details?page=${pageNumber}&pageSize=${pageSize}" class="page-link">${pageNumber + 1}</a>
+                        <c:if test="${totalPages > 0}">
+                            <!--begin::Pagination-->
+                            <ul class="pagination">
+                                <li class="page-item previous ${currentPage == 0 ? 'disabled' : ''}">
+                                    <a href="/product-${pid}/details?page=${currentPage - 1}&pageSize=${pageSize}"
+                                       class="page-link"><i class="previous"></i></a>
                                 </li>
-                            </c:forEach>
-                            <li class="page-item next">
-                                <a href="/product-${pid}/details?page=${currentPage + 1}&pageSize=${pageSize}" class="page-link"><i class="next"></i></a>
-                            </li>
-                        </ul>
-                        <!--end::Pagination-->
+                                <c:forEach begin="0" end="${totalPages - 1}" var="pageNumber">
+                                    <li class="page-item ${currentPage == pageNumber ? 'active' : ''}">
+                                        <a href="/product-${pid}/details?page=${pageNumber}&pageSize=${pageSize}"
+                                           class="page-link">${pageNumber + 1}</a>
+                                    </li>
+                                </c:forEach>
+                                <li class="page-item next">
+                                    <a href="/product-${pid}/details?page=${currentPage + 1}&pageSize=${pageSize}"
+                                       class="page-link"><i class="next"></i></a>
+                                </li>
+                            </ul>
+                            <!--end::Pagination-->
+                        </c:if>
                     </div>
                     <!--end::Col-->
                 </div>
