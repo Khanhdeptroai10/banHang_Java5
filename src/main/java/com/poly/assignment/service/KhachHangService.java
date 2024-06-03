@@ -24,14 +24,7 @@ public class KhachHangService {
     }
 
     public List<KhachHang> findByKey(String key) {
-        List<KhachHang> result = new ArrayList<>();
-        for (KhachHang khachHang: findAll()) {
-            if (khachHang.getMaKH().toLowerCase().contains(key.toLowerCase()) || khachHang.getTen().toLowerCase().contains(key.toLowerCase()) || khachHang.getSdt().toLowerCase().contains(key.toLowerCase())) {
-                result.add(khachHang);
-            }
-        }
-
-        return result;
+        return khachHangRepository.findByKey(key);
     }
 
     public void create(KhachHang khachHang) {

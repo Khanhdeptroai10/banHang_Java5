@@ -24,14 +24,7 @@ public class KichThuocService {
     }
 
     public List<KichThuoc> findByKey(String key) {
-        List<KichThuoc> result = new ArrayList<>();
-        for (KichThuoc kichThuoc: findAll()) {
-            if (kichThuoc.getMaKT().toLowerCase().contains(key.toLowerCase()) || kichThuoc.getTen().toLowerCase().contains(key.toLowerCase())) {
-                result.add(kichThuoc);
-            }
-        }
-
-        return result;
+        return kichThuocRepository.findByKey(key);
     }
 
     public void create(KichThuoc kichThuoc) {

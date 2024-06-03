@@ -33,17 +33,7 @@ public class HoaDonService {
     }
 
     public List<HoaDon> findByKey(String key) {
-        List<HoaDon> result = new ArrayList<>();
-        for (HoaDon hoaDon: findAll()) {
-            if (hoaDon.getNhanVien().getMaNV().toLowerCase().contains(key.toLowerCase()) ||
-                    hoaDon.getNhanVien().getTen().toLowerCase().contains(key.toLowerCase()) ||
-                    hoaDon.getKhachHang().getMaKH().toLowerCase().contains(key.toLowerCase()) ||
-                    hoaDon.getKhachHang().getTen().toLowerCase().contains(key.toLowerCase())) {
-                result.add(hoaDon);
-            }
-        }
-
-        return result;
+        return hoaDonRepository.findByKey(key);
     }
 
     public void create(HoaDon hoaDon) {

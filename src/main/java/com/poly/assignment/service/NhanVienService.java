@@ -24,14 +24,7 @@ public class NhanVienService {
     }
 
     public List<NhanVien> findByKey(String key) {
-        List<NhanVien> result = new ArrayList<>();
-        for (NhanVien nhanVien: findAll()) {
-            if (nhanVien.getMaNV().toLowerCase().contains(key.toLowerCase()) || nhanVien.getTen().toLowerCase().contains(key.toLowerCase()) || nhanVien.getTenDangNhap().toLowerCase().contains(key.toLowerCase())) {
-                result.add(nhanVien);
-            }
-        }
-
-        return result;
+        return nhanVienRepository.findByKey(key);
     }
 
     public void create(NhanVien nhanVien) {

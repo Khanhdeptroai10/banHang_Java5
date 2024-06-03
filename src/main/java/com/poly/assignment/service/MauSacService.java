@@ -24,14 +24,7 @@ public class MauSacService {
     }
 
     public List<MauSac> findByKey(String key) {
-        List<MauSac> result = new ArrayList<>();
-        for (MauSac mauSac: findAll()) {
-            if (mauSac.getMaMS().toLowerCase().contains(key.toLowerCase()) || mauSac.getTen().toLowerCase().contains(key.toLowerCase())) {
-                result.add(mauSac);
-            }
-        }
-
-        return result;
+        return mauSacRepository.findByKey(key);
     }
 
     public void create(MauSac mauSac) {

@@ -6,15 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6023acf9-9439-4c1c-8c3c-a8ad6b2cc34f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/GioHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/GioHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/HoaDonChiTietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/HoaDonChiTietController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/HoaDonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/HoaDonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/KichThuocController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/KichThuocController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/MauSacController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/MauSacController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/NhanVienController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/NhanVienController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/SanPhamChiTietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/SanPhamChiTietController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonChiTietRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonChiTietRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KhachHangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KichThuocRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KichThuocRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/MauSacRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/NhanVienRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamChiTietRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamChiTietRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonChiTietService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KhachHangService.java" afterDir="false" />
@@ -23,10 +22,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/NhanVienService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/NhanVienService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamChiTietService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/util/PageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/util/PageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/order-details-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/order-details-table.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-table.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/repository/KhachHangRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/poly/assignment/repository/KhachHangRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/KhachHangService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/KhachHangService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +65,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AssignmentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="assignment" />
       <extension name="coverage">
@@ -115,7 +101,8 @@
       <workItem from="1717391605608" duration="932000" />
       <workItem from="1717393331810" duration="907000" />
       <workItem from="1717394280807" duration="1444000" />
-      <workItem from="1717395773110" duration="2531000" />
+      <workItem from="1717395773110" duration="3436000" />
+      <workItem from="1717405403735" duration="1375000" />
     </task>
     <servers />
   </component>

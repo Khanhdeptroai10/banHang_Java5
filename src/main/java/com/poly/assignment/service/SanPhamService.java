@@ -28,14 +28,7 @@ public class SanPhamService {
     }
 
     public List<SanPham> findByKey(String key) {
-        List<SanPham> result = new ArrayList<>();
-        for (SanPham sanPham: findAll()) {
-            if (sanPham.getMaSP().toLowerCase().contains(key.toLowerCase()) || sanPham.getTen().toLowerCase().contains(key.toLowerCase())) {
-                result.add(sanPham);
-            }
-        }
-
-        return result;
+        return sanPhamRepository.findBykey(key);
     }
 
     public void create(SanPham sanPham, MultipartFile file) throws IOException {

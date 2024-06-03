@@ -23,15 +23,8 @@ public class HoaDonChiTietService {
         return hoaDonChiTietRepository.findById(id).get();
     }
 
-    public List<HoaDonChiTiet> findByKey(String key) {
-        List<HoaDonChiTiet> result = new ArrayList<>();
-        for (HoaDonChiTiet hoaDonChiTiet: findAll()) {
-            if (hoaDonChiTiet.getHoaDon().getId().toString().contains(key.toLowerCase()) || hoaDonChiTiet.getId().toString().contains(key.toLowerCase())) {
-                result.add(hoaDonChiTiet);
-            }
-        }
-
-        return result;
+    public List<HoaDonChiTiet> findByKey(Integer key) {
+        return hoaDonChiTietRepository.findByKey(key);
     }
 
     public List<HoaDonChiTiet> findAllHoaDonChiTietByHoaDon(Integer id) {

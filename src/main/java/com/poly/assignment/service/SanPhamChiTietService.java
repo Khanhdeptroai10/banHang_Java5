@@ -45,18 +45,7 @@ public class SanPhamChiTietService {
     }
 
     public List<SanPhamChiTiet> findByKey(String key) {
-        List<SanPhamChiTiet> result = new ArrayList<>();
-        for (SanPhamChiTiet sanPhamChiTiet : findAll()) {
-            if (sanPhamChiTiet.getMaSPCT().toLowerCase().contains(key.toLowerCase()) ||
-                    sanPhamChiTiet.getMauSac().getTen().toLowerCase().contains(key.toLowerCase()) ||
-                    sanPhamChiTiet.getKichThuoc().getTen().toLowerCase().contains(key.toLowerCase()) ||
-                    sanPhamChiTiet.getSanPham().getMaSP().toLowerCase().contains(key.toLowerCase()) ||
-                    sanPhamChiTiet.getSanPham().getTen().toLowerCase().contains(key.toLowerCase())) {
-                result.add(sanPhamChiTiet);
-            }
-        }
-
-        return result;
+        return sanPhamChiTietRepository.findByKey(key);
     }
 
     public void create(SanPhamChiTiet sanPhamChiTiet, MultipartFile file) throws IOException {

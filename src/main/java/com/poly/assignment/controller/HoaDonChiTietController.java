@@ -39,7 +39,7 @@ public class HoaDonChiTietController {
     }
 
     @GetMapping("/order-details/table/search")
-    public String findByKey(@RequestParam("key") String key,
+    public String findByKey(@RequestParam("key") Integer key,
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                             Model model) {
