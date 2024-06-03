@@ -146,10 +146,7 @@ public class HoaDonController {
     }
 
     @GetMapping("/orders/cancel")
-    public String cancelOrder(@RequestParam("id") Integer id,
-                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
-                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
-                              Model model) {
+    public String cancelOrder(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

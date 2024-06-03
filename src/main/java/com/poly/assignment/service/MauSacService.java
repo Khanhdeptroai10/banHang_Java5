@@ -1,36 +1,31 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.MauSac;
+import com.poly.assignment.repository.MauSacRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MauSacService {
 
-    List<MauSac> listMauSac = new ArrayList<>();
-
-    public MauSacService() {
-    }
+    private final MauSacRepository mauSacRepository;
 
     public List<MauSac> findAll() {
-        return listMauSac;
+        return mauSacRepository.findAll();
     }
 
     public MauSac findById(Integer id) {
-        for (MauSac mauSac: listMauSac) {
-            if (mauSac.getId() == id) {
-                return mauSac;
-            }
-        }
-
-        return null;
+        return mauSacRepository.findById(id).get();
     }
 
     public List<MauSac> findByKey(String key) {
         List<MauSac> result = new ArrayList<>();
-        for (MauSac mauSac: listMauSac) {
+        for (MauSac mauSac: findAll()) {
             if (mauSac.getMaMS().toLowerCase().contains(key.toLowerCase()) || mauSac.getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(mauSac);
             }
@@ -40,26 +35,15 @@ public class MauSacService {
     }
 
     public void create(MauSac mauSac) {
-        listMauSac.add(mauSac);
+        mauSacRepository.save(mauSac);
     }
 
     public void update(MauSac mauSac) {
-        for (int i = 0; i < listMauSac.size(); i++) {
-            if (listMauSac.get(i).getId().equals(mauSac.getId())) {
-                listMauSac.set(i, mauSac);
-            }
-        }
+        mauSacRepository.save(mauSac);
     }
 
-    public void delete(String id) {
-        List<MauSac> deList = new ArrayList<>();
-        for (int i = 0; i < listMauSac.size(); i++) {
-            if (listMauSac.get(i).getId().equals(id)) {
-                deList.add(listMauSac.get(i));
-            }
-        }
-
-        listMauSac.removeAll(deList);
+    public void delete(Integer id) {
+        mauSacRepository.deleteById(id);
     }
 
 }

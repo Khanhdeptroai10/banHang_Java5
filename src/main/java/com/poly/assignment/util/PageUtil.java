@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PageUtil {
+
     public static <T> Page<T> createPage(List<T> list, int page, int pageSize) {
         int totalElements = list.size();
         int startIndex = page * pageSize;

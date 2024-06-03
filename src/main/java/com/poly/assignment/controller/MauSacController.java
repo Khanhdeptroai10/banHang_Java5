@@ -128,7 +128,7 @@ public class MauSacController {
     }
 
     @GetMapping("/colors/delete")
-    public String deleteColor(@RequestParam("id") String id) {
+    public String deleteColor(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

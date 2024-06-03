@@ -35,8 +35,8 @@ public class GioHangController {
     }
 
     @GetMapping("/add-to-cart")
-    public String addToCart(@RequestParam("pid") String pid,
-                            @RequestParam("pdid") String pdid,
+    public String addToCart(@RequestParam("pid") Integer pid,
+                            @RequestParam("pdid") Integer pdid,
                             Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";

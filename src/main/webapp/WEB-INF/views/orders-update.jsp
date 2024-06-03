@@ -309,7 +309,7 @@
                                         <!--end::Label-->
                                         <!--begin::Auto-generated ID-->
                                         <div class="fw-bold fs-3">
-                                            #${hoaDon.id.length() > 7 ? hoaDon.id.substring(0, 7) : hoaDon.id}</div>
+                                            #${hoaDon.id}</div>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->

@@ -38,7 +38,7 @@ public class NhanVienController {
     }
 
     @GetMapping("/nhan-vien/{id}")
-    public NhanVien getEmployeeById(@PathVariable("id") String id) {
+    public NhanVien getEmployeeById(@PathVariable("id") Integer id) {
         return nhanVienService.findById(id);
     }
 
@@ -105,7 +105,7 @@ public class NhanVienController {
     }
 
     @GetMapping("/employee/update")
-    public String updateCustomer(@RequestParam("id") String id,
+    public String updateCustomer(@RequestParam("id") Integer id,
                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                  @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                  Model model) {

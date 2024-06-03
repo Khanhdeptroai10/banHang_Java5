@@ -1,6 +1,8 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.SanPham;
+import com.poly.assignment.repository.SanPhamRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,33 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SanPhamService {
 
-    List<SanPham> listSanPham = new ArrayList<>();
+    private final SanPhamRepository sanPhamRepository;
 
-    @Autowired
-    FileUploadService fileUploadService;
-
-    public SanPhamService() {
-    }
+    private final FileUploadService fileUploadService;
 
     public List<SanPham> findAll() {
-        return listSanPham;
+        return sanPhamRepository.findAll();
     }
 
     public SanPham findById(Integer id) {
-        for (SanPham sanPham: listSanPham) {
-            if (sanPham.getId() == id) {
-                return sanPham;
-            }
-        }
-
-        return null;
+        return sanPhamRepository.findById(id).get();
     }
 
     public List<SanPham> findByKey(String key) {
         List<SanPham> result = new ArrayList<>();
-        for (SanPham sanPham: listSanPham) {
+        for (SanPham sanPham: findAll()) {
             if (sanPham.getMaSP().toLowerCase().contains(key.toLowerCase()) || sanPham.getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(sanPham);
             }
@@ -47,27 +40,16 @@ public class SanPhamService {
 
     public void create(SanPham sanPham, MultipartFile file) throws IOException {
         sanPham.setHinhAnh(fileUploadService.uploadFile(file));
-        listSanPham.add(sanPham);
+        sanPhamRepository.save(sanPham);
     }
 
     public void update(SanPham sanPham, MultipartFile file) throws IOException {
-        for (int i = 0; i < listSanPham.size(); i++) {
-            if (listSanPham.get(i).getId().equals(sanPham.getId())) {
-                sanPham.setHinhAnh(fileUploadService.uploadFile(file));
-                listSanPham.set(i, sanPham);
-            }
-        }
+        sanPham.setHinhAnh(fileUploadService.uploadFile(file));
+        sanPhamRepository.save(sanPham);
     }
 
     public void delete(Integer id) {
-        List<SanPham> deList = new ArrayList<>();
-        for (int i = 0; i < listSanPham.size(); i++) {
-            if (listSanPham.get(i).getId() == id) {
-                deList.add(listSanPham.get(i));
-            }
-        }
-
-        listSanPham.removeAll(deList);
+        sanPhamRepository.deleteById(id);
     }
 
 }

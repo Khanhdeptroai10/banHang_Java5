@@ -1,36 +1,31 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.NhanVien;
+import com.poly.assignment.repository.NhanVienRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class NhanVienService {
 
-    List<NhanVien> listNhanVien = new ArrayList<>();
-
-    public NhanVienService() {
-    }
+    private final NhanVienRepository nhanVienRepository;
 
     public List<NhanVien> findAll() {
-        return listNhanVien;
+        return nhanVienRepository.findAll();
     }
 
-    public NhanVien findById(String id) {
-        for (NhanVien nhanVien: listNhanVien) {
-            if (nhanVien.getId().equals(id)) {
-                return nhanVien;
-            }
-        }
-
-        return null;
+    public NhanVien findById(Integer id) {
+        return nhanVienRepository.findById(id).get();
     }
 
     public List<NhanVien> findByKey(String key) {
         List<NhanVien> result = new ArrayList<>();
-        for (NhanVien nhanVien: listNhanVien) {
+        for (NhanVien nhanVien: findAll()) {
             if (nhanVien.getMaNV().toLowerCase().contains(key.toLowerCase()) || nhanVien.getTen().toLowerCase().contains(key.toLowerCase()) || nhanVien.getTenDangNhap().toLowerCase().contains(key.toLowerCase())) {
                 result.add(nhanVien);
             }
@@ -40,26 +35,15 @@ public class NhanVienService {
     }
 
     public void create(NhanVien nhanVien) {
-        listNhanVien.add(nhanVien);
+        nhanVienRepository.save(nhanVien);
     }
 
     public void update(NhanVien nhanVien) {
-        for (int i = 0; i < listNhanVien.size(); i++) {
-            if (listNhanVien.get(i).getId().equals(nhanVien.getId())) {
-                listNhanVien.set(i, nhanVien);
-            }
-        }
+        nhanVienRepository.save(nhanVien);
     }
 
     public void delete(Integer id) {
-        List<NhanVien> deList = new ArrayList<>();
-        for (int i = 0; i < listNhanVien.size(); i++) {
-            if (listNhanVien.get(i).getId() == id) {
-                deList.add(listNhanVien.get(i));
-            }
-        }
-
-        listNhanVien.removeAll(deList);
+        nhanVienRepository.deleteById(id);
     }
 
 }

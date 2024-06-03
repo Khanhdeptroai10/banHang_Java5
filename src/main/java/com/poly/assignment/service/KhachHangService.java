@@ -10,26 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class KhachHangService {
 
-    @Autowired
-    KhachHangRepository khachHangRepository;
+    private final KhachHangRepository khachHangRepository;
 
-    public List<KhachHang> getAll() {
-        return khachHangRepository.;
+    public List<KhachHang> findAll() {
+        return khachHangRepository.findAll();
     }
 
     public KhachHang findById(Integer id) {
-        khachHangRepository.findById(id);
+        return khachHangRepository.findById(id).get();
     }
 
     public List<KhachHang> findByKey(String key) {
         List<KhachHang> result = new ArrayList<>();
-//        for (KhachHang khachHang: getAll()) {
-//            if (khachHang.getMaKH().toLowerCase().contains(key.toLowerCase()) || khachHang.getTen().toLowerCase().contains(key.toLowerCase()) || khachHang.getSdt().toLowerCase().contains(key.toLowerCase())) {
-//                result.add(khachHang);
-//            }
-//        }
+        for (KhachHang khachHang: findAll()) {
+            if (khachHang.getMaKH().toLowerCase().contains(key.toLowerCase()) || khachHang.getTen().toLowerCase().contains(key.toLowerCase()) || khachHang.getSdt().toLowerCase().contains(key.toLowerCase())) {
+                result.add(khachHang);
+            }
+        }
 
         return result;
     }

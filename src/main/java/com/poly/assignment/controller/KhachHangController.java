@@ -115,7 +115,7 @@ public class KhachHangController {
     }
 
     @GetMapping("/customers/delete")
-    public String deleteCustomer(@RequestParam("id") String id) {
+    public String deleteCustomer(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

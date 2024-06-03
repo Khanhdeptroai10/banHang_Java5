@@ -1,6 +1,8 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.SanPhamChiTiet;
+import com.poly.assignment.repository.SanPhamChiTietRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,42 +12,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SanPhamChiTietService {
 
-    List<SanPhamChiTiet> listSanPhamChiTiet = new ArrayList<>();
+    private final SanPhamChiTietRepository sanPhamChiTietRepository;
 
-    @Autowired
-    KichThuocService kichThuocService;
+    private final KichThuocService kichThuocService;
 
-    @Autowired
-    MauSacService mauSacService;
+    private final MauSacService mauSacService;
 
-    @Autowired
-    SanPhamService sanPhamService;
+    private final SanPhamService sanPhamService;
 
-    @Autowired
-    FileUploadService fileUploadService;
-
-    public SanPhamChiTietService() {
-    }
+    private final FileUploadService fileUploadService;
 
     public List<SanPhamChiTiet> findAll() {
-        return listSanPhamChiTiet;
+        return sanPhamChiTietRepository.findAll();
     }
 
-    public SanPhamChiTiet findById(String id) {
-        for (SanPhamChiTiet sanPhamChiTiet : listSanPhamChiTiet) {
-            if (sanPhamChiTiet.getId().equals(id)) {
-                return sanPhamChiTiet;
-            }
-        }
-
-        return null;
+    public SanPhamChiTiet findById(Integer id) {
+        return sanPhamChiTietRepository.findById(id).get();
     }
 
     public List<SanPhamChiTiet> findAllSanPhamChiTietBySanPham(Integer id) {
         List<SanPhamChiTiet> result = new ArrayList<>();
-        for (SanPhamChiTiet sanPhamChiTiet : listSanPhamChiTiet) {
+        for (SanPhamChiTiet sanPhamChiTiet : findAll()) {
             if (sanPhamChiTiet.getSanPham().getId() == id) {
                 result.add(sanPhamChiTiet);
             }
@@ -56,7 +46,7 @@ public class SanPhamChiTietService {
 
     public List<SanPhamChiTiet> findByKey(String key) {
         List<SanPhamChiTiet> result = new ArrayList<>();
-        for (SanPhamChiTiet sanPhamChiTiet : listSanPhamChiTiet) {
+        for (SanPhamChiTiet sanPhamChiTiet : findAll()) {
             if (sanPhamChiTiet.getMaSPCT().toLowerCase().contains(key.toLowerCase()) ||
                     sanPhamChiTiet.getMauSac().getTen().toLowerCase().contains(key.toLowerCase()) ||
                     sanPhamChiTiet.getKichThuoc().getTen().toLowerCase().contains(key.toLowerCase()) ||
@@ -74,30 +64,19 @@ public class SanPhamChiTietService {
         sanPhamChiTiet.setMauSac(mauSacService.findById(sanPhamChiTiet.getMauSac().getId()));
         sanPhamChiTiet.setSanPham(sanPhamService.findById(sanPhamChiTiet.getSanPham().getId()));
         sanPhamChiTiet.setHinhAnh(fileUploadService.uploadFile(file));
-        listSanPhamChiTiet.add(sanPhamChiTiet);
+        sanPhamChiTietRepository.save(sanPhamChiTiet);
     }
 
     public void update(SanPhamChiTiet sanPhamChiTiet, MultipartFile file) throws IOException {
-        for (int i = 0; i < listSanPhamChiTiet.size(); i++) {
-            if (listSanPhamChiTiet.get(i).getId().equals(sanPhamChiTiet.getId())) {
-                sanPhamChiTiet.setKichThuoc(kichThuocService.findById(sanPhamChiTiet.getKichThuoc().getId()));
-                sanPhamChiTiet.setMauSac(mauSacService.findById(sanPhamChiTiet.getMauSac().getId()));
-                sanPhamChiTiet.setSanPham(sanPhamService.findById(sanPhamChiTiet.getSanPham().getId()));
-                sanPhamChiTiet.setHinhAnh(fileUploadService.uploadFile(file));
-                listSanPhamChiTiet.set(i, sanPhamChiTiet);
-            }
-        }
+        sanPhamChiTiet.setKichThuoc(kichThuocService.findById(sanPhamChiTiet.getKichThuoc().getId()));
+        sanPhamChiTiet.setMauSac(mauSacService.findById(sanPhamChiTiet.getMauSac().getId()));
+        sanPhamChiTiet.setSanPham(sanPhamService.findById(sanPhamChiTiet.getSanPham().getId()));
+        sanPhamChiTiet.setHinhAnh(fileUploadService.uploadFile(file));
+        sanPhamChiTietRepository.save(sanPhamChiTiet);
     }
 
     public void delete(Integer id) {
-        List<SanPhamChiTiet> deList = new ArrayList<>();
-        for (int i = 0; i < listSanPhamChiTiet.size(); i++) {
-            if (listSanPhamChiTiet.get(i).getId() == id) {
-                deList.add(listSanPhamChiTiet.get(i));
-            }
-        }
-
-        listSanPhamChiTiet.removeAll(deList);
+        sanPhamChiTietRepository.deleteById(id);
     }
 
 }

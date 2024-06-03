@@ -250,7 +250,7 @@
                                             <a href="apps/ecommerce/catalog/edit-product.html"
                                                class="symbol symbol-50px">
                                                 <span class="symbol-label"
-                                                      style="background-image:url(/public/assets/media//stock/ecommerce/1.png);"></span>
+                                                      style="background-image:url(${orderDetail.sanPhamChiTiet.hinhAnh});"></span>
                                             </a>
                                             <!--end::Thumbnail-->
                                             <div class="ms-5">
@@ -258,16 +258,16 @@
                                                 <a href="apps/ecommerce/catalog/edit-product.html"
                                                    class="text-gray-800 text-hover-primary fs-5 fw-bold"
                                                    data-kt-ecommerce-product-filter="product_name">Order detail
-                                                    #${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</a>
+                                                    #${orderDetail.id}</a>
                                                 <!--end::Title-->
                                             </div>
                                         </div>
                                     </td>
                                     <td class="text-end pe-0">
-                                        <span class="fw-bold">${orderDetail.id.length() > 7 ? orderDetail.id.substring(0, 7) : orderDetail.id}</span>
+                                        <span class="fw-bold">${orderDetail.id}</span>
                                     </td>
                                     <td class="text-end pe-0">
-                                        #${orderDetail.hoaDon.id.length() > 7 ? orderDetail.hoaDon.id.substring(0, 7) : orderDetail.hoaDon.id}</td>
+                                        #${orderDetail.hoaDon.id}</td>
                                     <td class="text-end pe-0">${orderDetail.sanPhamChiTiet.maSPCT}
                                         - ${orderDetail.sanPhamChiTiet.sanPham.ten}
                                         - ${orderDetail.sanPhamChiTiet.ten}</td>

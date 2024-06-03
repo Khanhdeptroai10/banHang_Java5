@@ -115,7 +115,7 @@ public class KichThuocController {
     }
 
     @GetMapping("/sizes/delete")
-    public String deleteSize(@RequestParam("id") String id) {
+    public String deleteSize(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

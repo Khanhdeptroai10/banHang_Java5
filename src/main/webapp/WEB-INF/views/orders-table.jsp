@@ -257,13 +257,13 @@
                                                 <a href="apps/ecommerce/catalog/edit-product.html"
                                                    class="text-gray-800 text-hover-primary fs-5 fw-bold"
                                                    data-kt-ecommerce-product-filter="product_name">Order
-                                                    #${order.id.length() > 7 ? order.id.substring(0, 7) : order.id}</a>
+                                                    #${order.id}</a>
                                                 <!--end::Title-->
                                             </div>
                                         </div>
                                     </td>
                                     <td class="text-end pe-0">
-                                        <span class="fw-bold">${order.id.length() > 7 ? order.id.substring(0, 7) : order.id}</span>
+                                        <span class="fw-bold">${order.id}</span>
                                     </td>
                                     <td class="text-end pe-0">${order.nhanVien.maNV} - ${order.nhanVien.ten}</td>
                                     <td class="text-end pe-0">${order.khachHang.maKH} - ${order.khachHang.ten}</td>

@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6023acf9-9439-4c1c-8c3c-a8ad6b2cc34f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonChiTietRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KhachHangRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KichThuocRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/MauSacRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/NhanVienRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamChiTietRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assm-java5.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/GioHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/GioHangController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/HoaDonChiTietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/HoaDonChiTietController.java" afterDir="false" />
@@ -29,16 +15,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/MauSacController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/MauSacController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/NhanVienController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/NhanVienController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/SanPhamChiTietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/SanPhamChiTietController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/SanPhamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/controller/SanPhamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/HoaDonChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/HoaDonChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/KichThuoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/KichThuoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/MauSac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/MauSac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/NhanVien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/SanPhamChiTiet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/entity/SanPhamChiTiet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/GioHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/GioHangService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonChiTietService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KhachHangService.java" afterDir="false" />
@@ -47,44 +23,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/NhanVienService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/NhanVienService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamChiTietService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/AssignmentApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/config/MySiteMeshFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/config/SiteMeshConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/GeneralController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/GioHangController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/HoaDonChiTietController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/HoaDonController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/KhachHangController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/KichThuocController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/MauSacController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/NhanVienController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/SanPhamChiTietController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/controller/SanPhamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/Auth.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/GioHang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/HoaDon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/HoaDonChiTiet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/KhachHang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/KichThuoc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/MauSac.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/NhanVien.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/SanPham.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/entity/SanPhamChiTiet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/AuthService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/FileUploadService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/GioHangService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/HoaDonChiTietService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/HoaDonService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/KhachHangService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/KichThuocService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/MauSacService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/NhanVienService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/SanPhamChiTietService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/SanPhamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/util/PageUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/poly/assignment/AssignmentApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/util/PageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/util/PageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/order-details-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/order-details-table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/orders-update.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,6 +45,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2h2RXUXUKIuvneZTDv00qkK8pWK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -109,9 +53,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -119,6 +68,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AssignmentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="assignment" />
       <extension name="coverage">
@@ -152,7 +112,10 @@
       <workItem from="1717381145526" duration="1273000" />
       <workItem from="1717383014409" duration="7639000" />
       <workItem from="1717390803139" duration="661000" />
-      <workItem from="1717391605608" duration="306000" />
+      <workItem from="1717391605608" duration="932000" />
+      <workItem from="1717393331810" duration="907000" />
+      <workItem from="1717394280807" duration="1444000" />
+      <workItem from="1717395773110" duration="2531000" />
     </task>
     <servers />
   </component>
@@ -169,5 +132,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

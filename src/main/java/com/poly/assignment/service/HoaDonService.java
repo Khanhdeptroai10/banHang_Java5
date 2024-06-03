@@ -3,6 +3,8 @@ package com.poly.assignment.service;
 import com.poly.assignment.entity.Auth;
 import com.poly.assignment.entity.HoaDon;
 import com.poly.assignment.entity.HoaDonChiTiet;
+import com.poly.assignment.repository.HoaDonRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,39 +13,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class HoaDonService {
 
-    List<HoaDon> listHoaDon = new ArrayList<>();
+    private final HoaDonRepository hoaDonRepository;
 
-    @Autowired
-    private KhachHangService khachHangService;
+    private final HoaDonChiTietService hoaDonChiTietService;
 
-    @Autowired
-    private GioHangService gioHangService;
+    private final KhachHangService khachHangService;
 
-    @Autowired
-    private HoaDonChiTietService hoaDonChiTietService;
-
-    public HoaDonService() {
-    }
+    private final GioHangService gioHangService;
 
     public List<HoaDon> findAll() {
-        return listHoaDon;
+        return hoaDonRepository.findAll();
     }
 
     public HoaDon findById(Integer id) {
-        for (HoaDon hoaDon: listHoaDon) {
-            if (hoaDon.getId() == id) {
-                return hoaDon;
-            }
-        }
-
-        return null;
+        return hoaDonRepository.findById(id).get();
     }
 
     public List<HoaDon> findByKey(String key) {
         List<HoaDon> result = new ArrayList<>();
-        for (HoaDon hoaDon: listHoaDon) {
+        for (HoaDon hoaDon: findAll()) {
             if (hoaDon.getNhanVien().getMaNV().toLowerCase().contains(key.toLowerCase()) ||
                     hoaDon.getNhanVien().getTen().toLowerCase().contains(key.toLowerCase()) ||
                     hoaDon.getKhachHang().getMaKH().toLowerCase().contains(key.toLowerCase()) ||
@@ -60,6 +51,7 @@ public class HoaDonService {
         hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
         hoaDon.setNgayMuaHang(LocalDateTime.now());
         hoaDon.setTrangThai(true);
+        hoaDonRepository.save(hoaDon);
 
         gioHangService.findAll().forEach(gioHang -> {
             HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
@@ -71,25 +63,25 @@ public class HoaDonService {
             hoaDonChiTietService.create(hoaDonChiTiet);
         });
         gioHangService.deleteAll();
-        listHoaDon.add(hoaDon);
     }
 
     public void update(HoaDon hoaDon) {
-        for (int i = 0; i < listHoaDon.size(); i++) {
-            if (listHoaDon.get(i).getId().equals(hoaDon.getId())) {
-                hoaDon.setNhanVien(Auth.getLoggedInNhanVien());
-                hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
-                hoaDon.setNgayMuaHang(LocalDateTime.now());
-                hoaDon.setTrangThai(true);
-                hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(hoaDon.getId()).forEach(hoaDonChiTiet -> hoaDonChiTiet.setTrangThai(true));
-                listHoaDon.set(i, hoaDon);
-            }
-        }
+        hoaDon.setNhanVien(Auth.getLoggedInNhanVien());
+        hoaDon.setKhachHang(khachHangService.findById(hoaDon.getKhachHang().getId()));
+        hoaDon.setNgayMuaHang(LocalDateTime.now());
+        hoaDon.setTrangThai(true);
+        hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(hoaDon.getId()).forEach(hoaDonChiTiet -> hoaDonChiTiet.setTrangThai(true));
+        hoaDonRepository.save(hoaDon);
     }
 
     public void cancel(Integer id) {
-        findById(id).setTrangThai(false);
-        hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(id).forEach(hoaDonChiTiet -> hoaDonChiTiet.setTrangThai(false));
+        HoaDon hoaDon = findById(id);
+        hoaDon.setTrangThai(false);
+        hoaDonRepository.save(hoaDon);
+        hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(id).forEach(hoaDonChiTiet -> {
+            hoaDonChiTiet.setTrangThai(false);
+            hoaDonChiTietService.update(hoaDonChiTiet);
+        });
     }
 
 }

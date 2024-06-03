@@ -34,7 +34,7 @@ public class HoaDonChiTietController {
     }
 
     @GetMapping("/admin/hoa-don-chi-tiet/{id}")
-    public HoaDonChiTiet getOrderDetailById(@PathVariable("id") String id) {
+    public HoaDonChiTiet getOrderDetailById(@PathVariable("id") Integer id) {
         return hoaDonChiTietService.findById(id);
     }
 

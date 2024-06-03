@@ -1,36 +1,31 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.KichThuoc;
+import com.poly.assignment.repository.KichThuocRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class KichThuocService {
 
-    List<KichThuoc> listKichThuoc = new ArrayList<>();
-
-    public KichThuocService() {
-    }
+    private final KichThuocRepository kichThuocRepository;
 
     public List<KichThuoc> findAll() {
-        return listKichThuoc;
+        return kichThuocRepository.findAll();
     }
 
     public KichThuoc findById(Integer id) {
-        for (KichThuoc kichThuoc: listKichThuoc) {
-            if (kichThuoc.getId() == id) {
-                return kichThuoc;
-            }
-        }
-
-        return null;
+        return kichThuocRepository.findById(id).get();
     }
 
     public List<KichThuoc> findByKey(String key) {
         List<KichThuoc> result = new ArrayList<>();
-        for (KichThuoc kichThuoc: listKichThuoc) {
+        for (KichThuoc kichThuoc: findAll()) {
             if (kichThuoc.getMaKT().toLowerCase().contains(key.toLowerCase()) || kichThuoc.getTen().toLowerCase().contains(key.toLowerCase())) {
                 result.add(kichThuoc);
             }
@@ -40,26 +35,15 @@ public class KichThuocService {
     }
 
     public void create(KichThuoc kichThuoc) {
-        listKichThuoc.add(kichThuoc);
+        kichThuocRepository.save(kichThuoc);
     }
 
     public void update(KichThuoc kichThuoc) {
-        for (int i = 0; i < listKichThuoc.size(); i++) {
-            if (listKichThuoc.get(i).getId().equals(kichThuoc.getId())) {
-                listKichThuoc.set(i, kichThuoc);
-            }
-        }
+        kichThuocRepository.save(kichThuoc);
     }
 
-    public void delete(String id) {
-        List<KichThuoc> deList = new ArrayList<>();
-        for (int i = 0; i < listKichThuoc.size(); i++) {
-            if (listKichThuoc.get(i).getId().equals(id)) {
-                deList.add(listKichThuoc.get(i));
-            }
-        }
-
-        listKichThuoc.removeAll(deList);
+    public void delete(Integer id) {
+        kichThuocRepository.deleteById(id);
     }
 
 }
