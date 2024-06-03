@@ -22,15 +22,15 @@ public class KichThuoc {
     private Integer id;
 
     @Column(name = "ma_kich_thuoc")
-    @NotBlank(message = "Vui long nhap ma kich thuoc")
+    @NotBlank(message = "Vui lòng nhập mã kích thước")
     private String maKT;
 
     @Column(name = "ten")
-    @NotBlank(message = "Vui long nhap ten kich thuoc")
+    @NotBlank(message = "Vui lòng nhập tên kích thước")
     private String ten;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
 }

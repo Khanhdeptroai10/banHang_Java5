@@ -34,7 +34,7 @@ public class HoaDon {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    @NotNull(message = "Vui long chon khach hang")
+    @NotNull(message = "Vui lòng chọn khách hàng")
     private KhachHang khachHang;
 
 }

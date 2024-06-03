@@ -22,15 +22,15 @@ public class MauSac {
     private Integer id;
 
     @Column(name = "ma_mau_sac")
-    @NotBlank(message = "Vui long nhap ma mau sac")
+    @NotBlank(message = "Vui lòng nhập mã màu sắc")
     private String maMS;
 
     @Column(name = "ten")
-    @NotBlank(message = "Vui long nhap ten mau sac")
+    @NotBlank(message = "Vui lòng nhập tên màu sắc")
     private String ten;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
 }

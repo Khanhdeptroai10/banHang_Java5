@@ -22,18 +22,18 @@ public class SanPham {
     private Integer id;
 
     @Column(name = "ma_san_pham")
-    @NotBlank(message = "Vui long nhap ma san pham")
+    @NotBlank(message = "Vui lòng nhập mã sản phẩm")
     private String maSP;
 
     @Column(name = "ten")
-    @NotBlank(message = "Vui long nhap ten san pham")
+    @NotBlank(message = "Vui lòng chọn tên sản phẩm")
     private String ten;
 
     @Column(name = "hinh_anh")
     private String hinhAnh;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
 }

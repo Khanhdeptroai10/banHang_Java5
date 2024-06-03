@@ -36,7 +36,7 @@ public class KhachHang {
     private String sdt;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
 }

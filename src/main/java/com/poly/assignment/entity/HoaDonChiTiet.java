@@ -21,25 +21,25 @@ public class HoaDonChiTiet {
     private Integer id;
 
     @Column(name = "so_luong")
-    @NotNull(message = "Vui long nhap so luong")
+    @NotNull(message = "Vui lòng nhập số lượng")
     private Integer soLuong;
 
     @Column(name = "don_gia")
-    @NotNull(message = "Vui long nhap don gia")
+    @NotNull(message = "Vui lòng nhập đơn giá")
     private Double donGia;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
     @ManyToOne
     @JoinColumn(name = "invoice_id", referencedColumnName = "id")
-    @NotNull(message = "Vui long chon hoa don")
+    @NotNull
     private HoaDon hoaDon;
 
     @ManyToOne
     @JoinColumn(name = "product_detail_id", referencedColumnName = "id")
-    @NotNull(message = "Vui long chon san pham chi tiet")
+    @NotNull
     private SanPhamChiTiet sanPhamChiTiet;
 
 }

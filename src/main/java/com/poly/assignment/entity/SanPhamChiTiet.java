@@ -23,43 +23,43 @@ public class SanPhamChiTiet {
     private Integer id;
 
     @Column(name = "ma_san_pham_chi_tiet")
-    @NotBlank(message = "Vui long nhap ma san pham chi tiet")
+    @NotBlank(message = "Vui lòng nhập mã sản phẩm chi tiết")
     private String maSPCT;
 
     @Column(name = "ten")
-    @NotBlank(message = "Vui long nhap ten san pham chi tiet")
+    @NotBlank(message = "Vui lòng nhập tên sản phẩm chi tiết")
     private String ten;
 
     @Column(name = "soLuong")
-    @Min(value = 1, message = "Vui long nhap so luong > 0")
-    @NotNull(message = "Vui long nhap so luong")
+    @Min(value = 1, message = "Vui lòng nhập số lượng > 0")
+    @NotNull(message = "Vui lòng nhập số lượng")
     private Integer soLuong;
 
     @Column(name = "don_gia")
-    @Min(value = 1, message = "Vui long nhap don gia > 0")
-    @NotNull(message = "Vui long nhap don gia")
+    @Min(value = 1, message = "Vui lòng nhập đơn giá > 0")
+    @NotNull(message = "Vui lòng nhập đơn giá")
     private Double donGia;
 
     @Column(name = "hinh_anh")
     private String hinhAnh;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
     @ManyToOne
     @JoinColumn(name = "size_id", referencedColumnName = "id")
-    @NotNull(message = "Vui long chon kich thuoc")
+    @NotNull(message = "Vui lòng chọn kích thước")
     private KichThuoc kichThuoc;
 
     @ManyToOne
     @JoinColumn(name = "color_id", referencedColumnName = "id")
-    @NotNull(message = "Vui long chon mau sac")
+    @NotNull(message = "Vui lòng chọn màu sắc")
     private MauSac mauSac;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
-    @NotNull(message = "Vui long chon san pham")
+    @NotNull(message = "Vui lòng chọn sản phẩm")
     private SanPham sanPham;
 
 }

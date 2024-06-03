@@ -22,27 +22,27 @@ public class NhanVien {
     private Integer id;
 
     @Column(name = "ma_nhan_vien")
-    @NotBlank(message = "Vui long nhap ma nhan vien")
+    @NotBlank(message = "Vui lòng nhập mã nhân viên")
     private String maNV;
 
     @Column(name = "ten")
-    @NotBlank(message = "Vui long nhap ten nhan vien")
+    @NotBlank(message = "Vui lòng nhập tên nhân viên")
     private String ten;
 
     @Column(name = "ten_dang_nhap")
-    @NotBlank(message = "Vui long nhap ten dang nhap")
+    @NotBlank(message = "Vui lòng nhập tên đăng nhập")
     private String tenDangNhap;
 
     @Column(name = "mat_khau")
-    @NotBlank(message = "Vui long nhap mat khau")
+    @NotBlank(message = "Vui lòng nhập mật khẩu")
     private String matKhau;
 
     @Column(name = "vai_tro")
-    @NotNull(message = "Vui long chon vai tro")
+    @NotNull(message = "Vui lòng chọn vai trò")
     private Boolean vaiTro;
 
     @Column(name = "trang_thai")
-    @NotNull(message = "Vui long chon trang thai")
+    @NotNull(message = "Vui lòng chọn trạng thái")
     private Boolean trangThai;
 
 }
