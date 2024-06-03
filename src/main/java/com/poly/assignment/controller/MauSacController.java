@@ -38,7 +38,7 @@ public class MauSacController {
     }
 
     @GetMapping("/color/{id}")
-    public MauSac getColorById(@PathVariable("id") String id) {
+    public MauSac getColorById(@PathVariable("id") Integer id) {
         return mauSacService.findById(id);
     }
 
@@ -83,7 +83,7 @@ public class MauSacController {
     @PostMapping("/color/create")
     public String createColor(@Valid @ModelAttribute("mauSac") MauSac mauSac,
                              BindingResult result,
-                             @RequestParam(value = "id", required = false) String id,
+                             @RequestParam(value = "id", required = false) Integer id,
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {
@@ -99,7 +99,7 @@ public class MauSacController {
             return "/colors-table.jsp";
         }
 
-        if (!id.isBlank()) {
+        if (id != null && !id.toString().isBlank()) {
             mauSac.setId(id);
             mauSacService.update(mauSac);
         } else {
@@ -110,7 +110,7 @@ public class MauSacController {
     }
 
     @GetMapping("/color/update")
-    public String updateColor(@RequestParam("id") String id,
+    public String updateColor(@RequestParam("id") Integer id,
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {

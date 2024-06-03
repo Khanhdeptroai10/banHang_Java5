@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class MauSacService {
@@ -13,20 +12,15 @@ public class MauSacService {
     List<MauSac> listMauSac = new ArrayList<>();
 
     public MauSacService() {
-        listMauSac.add(new MauSac("1", "MS01", "Den", true));
-        listMauSac.add(new MauSac("2", "MS02", "Trang", true));
-        listMauSac.add(new MauSac("3", "MS03", "Do", true));
-        listMauSac.add(new MauSac("4", "MS04", "Xanh", true));
-        listMauSac.add(new MauSac("5", "MS05", "Cam", true));
     }
 
     public List<MauSac> findAll() {
         return listMauSac;
     }
 
-    public MauSac findById(String id) {
+    public MauSac findById(Integer id) {
         for (MauSac mauSac: listMauSac) {
-            if (mauSac.getId().equals(id)) {
+            if (mauSac.getId() == id) {
                 return mauSac;
             }
         }
@@ -46,7 +40,6 @@ public class MauSacService {
     }
 
     public void create(MauSac mauSac) {
-        mauSac.setId(UUID.randomUUID().toString());
         listMauSac.add(mauSac);
     }
 

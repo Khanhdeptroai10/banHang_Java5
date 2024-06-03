@@ -78,7 +78,7 @@ public class NhanVienController {
     @PostMapping("/employee/create")
     public String createCustomer(@Valid @ModelAttribute("nhanVien") NhanVien nhanVien,
                                  BindingResult result,
-                                 @RequestParam(value = "id", required = false) String id,
+                                 @RequestParam(value = "id", required = false) Integer id,
                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                  @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                  Model model) {
@@ -94,7 +94,7 @@ public class NhanVienController {
             return "/employees-table.jsp";
         }
 
-        if (!id.isBlank()) {
+        if (id != null && !id.toString().isBlank()) {
             nhanVien.setId(id);
             nhanVienService.update(nhanVien);
         } else {
@@ -123,7 +123,7 @@ public class NhanVienController {
     }
 
     @GetMapping("/employees/delete")
-    public String deleteCustomer(@RequestParam("id") String id) {
+    public String deleteCustomer(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

@@ -38,7 +38,7 @@ public class KhachHangController {
     }
 
     @GetMapping("/customer/{id}")
-    public KhachHang getCustomerById(@PathVariable("id") String id) {
+    public KhachHang getCustomerById(@PathVariable("id") Integer id) {
         return khachHangService.findById(id);
     }
 
@@ -70,7 +70,7 @@ public class KhachHangController {
     @PostMapping("/customer/create")
     public String createCustomer(@Valid @ModelAttribute("khachHang") KhachHang khachHang,
                                  BindingResult result,
-                                 @RequestParam(value = "id", required = false) String id,
+                                 @RequestParam(value = "id", required = false) Integer id,
                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                  @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                  Model model) {
@@ -86,7 +86,7 @@ public class KhachHangController {
             return "/customers-table.jsp";
         }
 
-        if (!id.isBlank()) {
+        if (id != null && !id.toString().isBlank()) {
             khachHang.setId(id);
             khachHangService.update(khachHang);
         } else {
@@ -97,7 +97,7 @@ public class KhachHangController {
     }
 
     @GetMapping("/customer/update")
-    public String updateCustomer(@RequestParam("id") String id,
+    public String updateCustomer(@RequestParam("id") Integer id,
                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                  @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                  Model model) {

@@ -73,7 +73,7 @@ public class GioHangController {
     }
 
     @GetMapping("/delete-item-in-cart")
-    public String deleteItemInCart(@RequestParam("pdid") String pdid, Model model) {
+    public String deleteItemInCart(@RequestParam("pdid") Integer pdid, Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

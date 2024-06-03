@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class KichThuocService {
@@ -13,20 +12,15 @@ public class KichThuocService {
     List<KichThuoc> listKichThuoc = new ArrayList<>();
 
     public KichThuocService() {
-        listKichThuoc.add(new KichThuoc("1", "KT01", "S", true));
-        listKichThuoc.add(new KichThuoc("2", "KT02", "M", true));
-        listKichThuoc.add(new KichThuoc("3", "KT03", "L", true));
-        listKichThuoc.add(new KichThuoc("4", "KT04", "XL", true));
-        listKichThuoc.add(new KichThuoc("5", "KT05", "XXL", true));
     }
 
     public List<KichThuoc> findAll() {
         return listKichThuoc;
     }
 
-    public KichThuoc findById(String id) {
+    public KichThuoc findById(Integer id) {
         for (KichThuoc kichThuoc: listKichThuoc) {
-            if (kichThuoc.getId().equals(id)) {
+            if (kichThuoc.getId() == id) {
                 return kichThuoc;
             }
         }
@@ -46,7 +40,6 @@ public class KichThuocService {
     }
 
     public void create(KichThuoc kichThuoc) {
-        kichThuoc.setId(UUID.randomUUID().toString());
         listKichThuoc.add(kichThuoc);
     }
 

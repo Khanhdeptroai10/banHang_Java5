@@ -104,7 +104,7 @@ public class HoaDonController {
     }
 
     @GetMapping("/orders/update/{id}")
-    public String showUpdateOrder(@PathVariable("id") String id,
+    public String showUpdateOrder(@PathVariable("id") Integer id,
                                   @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                   @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                   Model model) {
@@ -126,7 +126,7 @@ public class HoaDonController {
     @PostMapping("/orders/update")
     public String updateOrder(@Valid @ModelAttribute("hoaDon") HoaDon hoaDon,
                               BindingResult result,
-                              @RequestParam("id") String id) {
+                              @RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
@@ -146,7 +146,7 @@ public class HoaDonController {
     }
 
     @GetMapping("/orders/cancel")
-    public String cancelOrder(@RequestParam("id") String id,
+    public String cancelOrder(@RequestParam("id") Integer id,
                               @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                               @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                               Model model) {

@@ -21,9 +21,9 @@ public class GioHangService {
                 .findFirst().orElse(null);
     }
 
-    public GioHang findByProductDetailId(String pdid) {
+    public GioHang findByProductDetailId(Integer pdid) {
         return gioHangList.stream()
-                .filter(item -> item.getSanPhamChiTiet().getId().equals(pdid))
+                .filter(item -> item.getSanPhamChiTiet().getId() == pdid)
                 .findFirst().orElse(null);
     }
 
@@ -46,7 +46,7 @@ public class GioHangService {
             gioHang.setQuantity(gioHang.getQuantity() + 1);
     }
 
-    public void deleteItemInCart(String pdid) {
+    public void deleteItemInCart(Integer pdid) {
         GioHang gioHangResult = findByProductDetailId(pdid);
         if (gioHangResult != null)
             gioHangList.remove(gioHangResult);

@@ -55,7 +55,7 @@ public class HoaDonChiTietController {
     }
 
     @GetMapping("/order-details-by-order")
-    public String getAllHoaDonChiTietByHoaDonId(@RequestParam("id") String id,
+    public String getAllHoaDonChiTietByHoaDonId(@RequestParam("id") Integer id,
                                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                                 Model model) {

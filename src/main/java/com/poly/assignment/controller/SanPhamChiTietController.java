@@ -48,7 +48,7 @@ public class SanPhamChiTietController {
     }
 
     @GetMapping("/product-{pid}/details")
-    public String getAllProductDetailByProductId(@PathVariable("pid") String pid,
+    public String getAllProductDetailByProductId(@PathVariable("pid") Integer pid,
                                                  @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                                  @RequestParam(value = "pageSize", required = false, defaultValue = "8") Integer pageSize,
                                                  Model model) {
@@ -66,7 +66,7 @@ public class SanPhamChiTietController {
     }
 
     @GetMapping("/product-details-by-product")
-    public String getAllSanPhamChiTietBySanPhamId(@RequestParam("id") String id,
+    public String getAllSanPhamChiTietBySanPhamId(@RequestParam("id") Integer id,
                                                   @ModelAttribute("sanPhamChiTiet") SanPhamChiTiet sanPhamChiTiet,
                                                   @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                                   @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
@@ -140,7 +140,7 @@ public class SanPhamChiTietController {
     public String createProduct(@Valid @ModelAttribute("sanPhamChiTiet") SanPhamChiTiet sanPhamChiTiet,
                                 BindingResult result,
                                 MultipartFile file,
-                                @RequestParam(value = "id", required = false) String id,
+                                @RequestParam(value = "id", required = false) Integer id,
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) throws IOException {
@@ -156,7 +156,7 @@ public class SanPhamChiTietController {
             return "/product-details-table.jsp";
         }
 
-        if (id != null && !id.isBlank()) {
+        if (id != null && !id.toString().isBlank()) {
             sanPhamChiTiet.setId(id);
             sanPhamChiTietService.update(sanPhamChiTiet, file);
         } else {
@@ -185,7 +185,7 @@ public class SanPhamChiTietController {
     }
 
     @GetMapping("/product-details/delete")
-    public String deleteProduct(@RequestParam("id") String id) {
+    public String deleteProduct(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }

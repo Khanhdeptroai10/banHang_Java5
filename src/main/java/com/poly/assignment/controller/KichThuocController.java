@@ -38,7 +38,7 @@ public class KichThuocController {
     }
 
     @GetMapping("/size/{id}")
-    public KichThuoc getSizeById(@PathVariable("id") String id) {
+    public KichThuoc getSizeById(@PathVariable("id") Integer id) {
         return kichThuocService.findById(id);
     }
 
@@ -70,7 +70,7 @@ public class KichThuocController {
     @PostMapping("/size/create")
     public String createSize(@Valid @ModelAttribute("kichThuoc") KichThuoc kichThuoc,
                              BindingResult result,
-                             @RequestParam(value = "id", required = false) String id,
+                             @RequestParam(value = "id", required = false) Integer id,
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {
@@ -86,7 +86,7 @@ public class KichThuocController {
             return "/sizes-table.jsp";
         }
 
-        if (!id.isBlank()) {
+        if (id != null && !id.toString().isBlank()) {
             kichThuoc.setId(id);
             kichThuocService.update(kichThuoc);
         } else {
@@ -97,7 +97,7 @@ public class KichThuocController {
     }
 
     @GetMapping("/size/update")
-    public String updateSize(@RequestParam("id") String id,
+    public String updateSize(@RequestParam("id") Integer id,
                              @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                              Model model) {

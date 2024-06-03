@@ -30,7 +30,7 @@ public class SanPhamController {
     private final SanPhamChiTietService sanPhamChiTietService;
 
     @GetMapping("/products/edit")
-    public String pEdit(@RequestParam(value = "pid", required = false) String pid, Model model) {
+    public String pEdit(@RequestParam(value = "pid", required = false) Integer pid, Model model) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
@@ -86,7 +86,7 @@ public class SanPhamController {
     public String createProduct(@Valid @ModelAttribute("sanPham") SanPham sanPham,
                                 BindingResult result,
                                 MultipartFile file,
-                                @RequestParam(value = "id", required = false) String id,
+                                @RequestParam(value = "id", required = false) Integer id,
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) throws IOException {
@@ -102,7 +102,7 @@ public class SanPhamController {
             return "/products-table.jsp";
         }
 
-        if (id != null && !id.isBlank()) {
+        if (id != null && !id.toString().isBlank()) {
             sanPham.setId(id);
             sanPhamService.update(sanPham, file);
         } else {
@@ -113,7 +113,7 @@ public class SanPhamController {
     }
 
     @GetMapping("/products/update")
-    public String updateProduct(@RequestParam("id") String id,
+    public String updateProduct(@RequestParam("id") Integer id,
                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                 Model model) {
@@ -131,7 +131,7 @@ public class SanPhamController {
     }
 
     @GetMapping("/products/delete")
-    public String deleteProduct(@RequestParam("id") String id) {
+    public String deleteProduct(@RequestParam("id") Integer id) {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
