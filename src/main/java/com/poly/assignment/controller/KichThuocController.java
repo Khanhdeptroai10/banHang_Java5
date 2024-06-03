@@ -37,11 +37,6 @@ public class KichThuocController {
         return "/sizes-table.jsp";
     }
 
-    @GetMapping("/size/{id}")
-    public KichThuoc getSizeById(@PathVariable("id") Integer id) {
-        return kichThuocService.findById(id);
-    }
-
     @GetMapping("/products/sizes/search")
     public String findByKey(@RequestParam("key") String key,
                             @ModelAttribute("kichThuoc") KichThuoc kichThuoc,

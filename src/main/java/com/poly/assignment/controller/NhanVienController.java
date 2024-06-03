@@ -37,11 +37,6 @@ public class NhanVienController {
         return "/employees-table.jsp";
     }
 
-    @GetMapping("/nhan-vien/{id}")
-    public NhanVien getEmployeeById(@PathVariable("id") Integer id) {
-        return nhanVienService.findById(id);
-    }
-
     @GetMapping("/employees/search")
     public String findByKey(@RequestParam("key") String key,
                             @ModelAttribute("nhanVien") NhanVien nhanVien,

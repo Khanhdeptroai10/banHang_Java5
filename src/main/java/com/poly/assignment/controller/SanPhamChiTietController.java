@@ -71,6 +71,9 @@ public class SanPhamChiTietController {
                                                   @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                                   @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                                   Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
         Page<SanPhamChiTiet> sanPhamChiTietPage = PageUtil.createPage(sanPhamChiTietService.findAllSanPhamChiTietBySanPham(id), page, pageSize);
         model.addAttribute("productDetails", sanPhamChiTietPage.getContent());
         model.addAttribute("currentPage", page);

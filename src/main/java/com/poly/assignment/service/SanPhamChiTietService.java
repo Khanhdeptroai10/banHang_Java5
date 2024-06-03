@@ -2,6 +2,7 @@ package com.poly.assignment.service;
 
 import com.poly.assignment.entity.SanPhamChiTiet;
 import com.poly.assignment.repository.SanPhamChiTietRepository;
+import com.poly.assignment.repository.SanPhamRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,14 +35,7 @@ public class SanPhamChiTietService {
     }
 
     public List<SanPhamChiTiet> findAllSanPhamChiTietBySanPham(Integer id) {
-        List<SanPhamChiTiet> result = new ArrayList<>();
-        for (SanPhamChiTiet sanPhamChiTiet : findAll()) {
-            if (sanPhamChiTiet.getSanPham().getId() == id) {
-                result.add(sanPhamChiTiet);
-            }
-        }
-
-        return result;
+        return sanPhamChiTietRepository.findSanPhamChiTietBySanPham(sanPhamService.findById(id));
     }
 
     public List<SanPhamChiTiet> findByKey(String key) {

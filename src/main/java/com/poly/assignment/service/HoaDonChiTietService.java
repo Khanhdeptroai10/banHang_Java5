@@ -2,6 +2,7 @@ package com.poly.assignment.service;
 
 import com.poly.assignment.entity.HoaDonChiTiet;
 import com.poly.assignment.repository.HoaDonChiTietRepository;
+import com.poly.assignment.repository.HoaDonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,8 @@ import java.util.List;
 public class HoaDonChiTietService {
 
     private final HoaDonChiTietRepository hoaDonChiTietRepository;
+
+    private final HoaDonRepository hoaDonRepository;
 
     public List<HoaDonChiTiet> findAll() {
         return hoaDonChiTietRepository.findAll();
@@ -28,14 +31,7 @@ public class HoaDonChiTietService {
     }
 
     public List<HoaDonChiTiet> findAllHoaDonChiTietByHoaDon(Integer id) {
-        List<HoaDonChiTiet> result = new ArrayList<>();
-        for (HoaDonChiTiet hoaDonChiTiet: findAll()) {
-            if (hoaDonChiTiet.getHoaDon().getId() == id) {
-                result.add(hoaDonChiTiet);
-            }
-        }
-
-        return result;
+        return hoaDonChiTietRepository.findHoaDonChiTietByHoaDon(hoaDonRepository.findById(id).get());
     }
 
     public void create(HoaDonChiTiet hoaDonChiTiet) {

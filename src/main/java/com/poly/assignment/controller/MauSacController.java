@@ -37,11 +37,6 @@ public class MauSacController {
         return "/colors-table.jsp";
     }
 
-    @GetMapping("/color/{id}")
-    public MauSac getColorById(@PathVariable("id") Integer id) {
-        return mauSacService.findById(id);
-    }
-
     @GetMapping("/color/search")
     public String findByKey(@RequestParam("key") String key,
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,

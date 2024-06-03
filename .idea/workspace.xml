@@ -7,23 +7,11 @@
     <list default="true" id="6023acf9-9439-4c1c-8c3c-a8ad6b2cc34f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonChiTietRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonChiTietRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/HoaDonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KichThuocRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/KichThuocRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/MauSacRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/MauSacRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/NhanVienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/NhanVienRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamChiTietRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamChiTietRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/repository/SanPhamRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonChiTietService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/HoaDonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KhachHangService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KichThuocService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/KichThuocService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/MauSacService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/MauSacService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/NhanVienService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/NhanVienService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamChiTietService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamChiTietService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/poly/assignment/service/SanPhamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/repository/KhachHangRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/poly/assignment/repository/KhachHangRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/KhachHangService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/KhachHangService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/repository/HoaDonChiTietRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/poly/assignment/repository/HoaDonChiTietRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/HoaDonChiTietService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/poly/assignment/service/HoaDonChiTietService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +90,7 @@
       <workItem from="1717393331810" duration="907000" />
       <workItem from="1717394280807" duration="1444000" />
       <workItem from="1717395773110" duration="3436000" />
-      <workItem from="1717405403735" duration="1375000" />
+      <workItem from="1717405403735" duration="2130000" />
     </task>
     <servers />
   </component>

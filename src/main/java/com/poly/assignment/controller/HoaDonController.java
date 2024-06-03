@@ -32,15 +32,6 @@ public class HoaDonController {
 
     private final HoaDonChiTietService hoaDonChiTietService;
 
-    @GetMapping("/checkout")
-    public String checkoutPage(Model model) {
-        if (Auth.getLoggedInNhanVien() == null) {
-            return "redirect:/login";
-        }
-        model.addAttribute("carts", gioHangService.findAll());
-        return "/checkout.jsp";
-    }
-
     @GetMapping("/orders/table")
     public String getOrders(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,

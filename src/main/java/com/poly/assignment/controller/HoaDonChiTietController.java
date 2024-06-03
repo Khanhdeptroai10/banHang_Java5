@@ -33,11 +33,6 @@ public class HoaDonChiTietController {
         return "/order-details-table.jsp";
     }
 
-    @GetMapping("/admin/hoa-don-chi-tiet/{id}")
-    public HoaDonChiTiet getOrderDetailById(@PathVariable("id") Integer id) {
-        return hoaDonChiTietService.findById(id);
-    }
-
     @GetMapping("/order-details/table/search")
     public String findByKey(@RequestParam("key") Integer key,
                             @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
@@ -59,6 +54,9 @@ public class HoaDonChiTietController {
                                                 @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                                 @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize,
                                                 Model model) {
+        if (Auth.getLoggedInNhanVien() == null) {
+            return "redirect:/login";
+        }
         Page<HoaDonChiTiet> hoaDonChiTietPage = PageUtil.createPage(hoaDonChiTietService.findAllHoaDonChiTietByHoaDon(id), page, pageSize);
         model.addAttribute("orderDetails", hoaDonChiTietPage.getContent());
         model.addAttribute("currentPage", page);
