@@ -523,7 +523,8 @@
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="/product-details/delete?id=${productDetail.id}"
+                                                        <a onclick="return confirm('Do you want to delete this item?')"
+                                                           href="/product-details/delete?id=${productDetail.id}"
                                                            class="menu-link px-3"
                                                            data-kt-ecommerce-product-filter="delete_row">Delete</a>
                                                     </div>
