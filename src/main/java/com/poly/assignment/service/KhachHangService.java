@@ -3,10 +3,8 @@ package com.poly.assignment.service;
 import com.poly.assignment.entity.KhachHang;
 import com.poly.assignment.repository.KhachHangRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

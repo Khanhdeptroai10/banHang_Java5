@@ -2,7 +2,6 @@ package com.poly.assignment.controller;
 
 import com.poly.assignment.entity.Auth;
 import com.poly.assignment.entity.SanPham;
-import com.poly.assignment.service.SanPhamChiTietService;
 import com.poly.assignment.service.SanPhamService;
 import com.poly.assignment.util.PageUtil;
 import jakarta.validation.Valid;
@@ -26,8 +25,6 @@ import java.util.Map;
 public class SanPhamController {
 
     private final SanPhamService sanPhamService;
-
-    private final SanPhamChiTietService sanPhamChiTietService;
 
     @GetMapping("/products/edit")
     public String pEdit(@RequestParam(value = "pid", required = false) Integer pid, Model model) {
@@ -135,11 +132,8 @@ public class SanPhamController {
         if (Auth.getLoggedInNhanVien() == null) {
             return "redirect:/login";
         }
-        sanPhamService.delete(id);
 
-        sanPhamChiTietService.findAllSanPhamChiTietBySanPham(id).forEach(sanPhamChiTiet ->
-            sanPhamChiTietService.delete(sanPhamChiTiet.getId())
-        );
+        sanPhamService.delete(id);
 
         return "redirect:/products/table";
     }

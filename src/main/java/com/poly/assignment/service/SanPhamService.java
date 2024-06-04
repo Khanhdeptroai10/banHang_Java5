@@ -1,14 +1,13 @@
 package com.poly.assignment.service;
 
 import com.poly.assignment.entity.SanPham;
+import com.poly.assignment.repository.SanPhamChiTietRepository;
 import com.poly.assignment.repository.SanPhamRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,6 +15,8 @@ import java.util.List;
 public class SanPhamService {
 
     private final SanPhamRepository sanPhamRepository;
+
+    private final SanPhamChiTietRepository sanPhamChiTietRepository;
 
     private final FileUploadService fileUploadService;
 
@@ -42,6 +43,10 @@ public class SanPhamService {
     }
 
     public void delete(Integer id) {
+        sanPhamChiTietRepository.findSanPhamChiTietBySanPham(findById(id)).forEach(sanPhamChiTiet ->
+            sanPhamChiTietRepository.deleteById(sanPhamChiTiet.getId())
+        );
+
         sanPhamRepository.deleteById(id);
     }
 
