@@ -293,8 +293,7 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a onclick="return confirm('Do you want to cancel this item?')"
-                                                   href="/orders/cancel?id=${order.id}" class="menu-link px-3"
+                                                <a href="/orders/cancel?id=${order.id}" class="menu-link px-3"
                                                    data-kt-ecommerce-product-filter="delete_row">Cancel</a>
                                             </div>
                                             <!--end::Menu item-->
