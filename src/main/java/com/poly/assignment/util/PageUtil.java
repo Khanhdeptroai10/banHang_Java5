@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.Collections;
 import java.util.List;
 
-public class PageUtil {
+public class giPageUtil {
 
     public static <T> Page<T> createPage(List<T> list, int page, int pageSize) {
         int totalElements = list.size();
